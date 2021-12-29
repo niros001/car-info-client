@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import styled from 'styled-components';
 import {Tabs} from 'antd';
 import {useTranslation} from 'react-i18next';
@@ -79,14 +79,18 @@ const FlagIcon = styled.img`
 `;
 
 const App = ({language, changeLanguage}) => {
+  useEffect(() => {
+    localStorage.removeItem('token');
+  }, []);
+
   const {t} = useTranslation();
 
   const menu = useMemo(() => [
     {icon: <SearchOutlined />, name: t('Search options'), component: <SearchPage />},
     {icon: <ToolOutlined />, name: t('Garages'), component: <GaragesPage />},
-    {icon: <AndroidOutlined />, name: t('Spare price list'), component: <div>
-        <CreditCard />
-      </div>},
+    // {icon: <AndroidOutlined />, name: t('Spare price list'), component: <div>
+    //     <CreditCard />
+    //   </div>},
   ], [t])
 
   return (
@@ -97,7 +101,7 @@ const App = ({language, changeLanguage}) => {
                 <b style={{fontSize: 12}}>CAR-INFO</b>
               </LogoWrapper>
           )
-          // , right: <User />
+          , right: <User />
         }}>
           {menu.map(({icon, name, component}, index) => (
               <Tabs.TabPane
