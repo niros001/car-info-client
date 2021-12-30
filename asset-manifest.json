@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/car-info-client/static/css/main.2d9027ef.css",
+    "main.js": "/car-info-client/static/js/main.532567e0.js",
+    "static/js/787.0c40e9ef.chunk.js": "/car-info-client/static/js/787.0c40e9ef.chunk.js",
+    "static/media/us.svg": "/car-info-client/static/media/us.cb3557fd707b978ef927bef888378fb8.svg",
+    "static/media/logo.svg": "/car-info-client/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/il.svg": "/car-info-client/static/media/il.9bbe130ed5385d0cd03a92060daa40be.svg",
+    "index.html": "/car-info-client/index.html",
+    "static/media/fr.svg": "/car-info-client/static/media/fr.0c209b8adf548d40535e0236032dfde9.svg",
+    "main.2d9027ef.css.map": "/car-info-client/static/css/main.2d9027ef.css.map",
+    "main.532567e0.js.map": "/car-info-client/static/js/main.532567e0.js.map",
+    "787.0c40e9ef.chunk.js.map": "/car-info-client/static/js/787.0c40e9ef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d9027ef.css",
+    "static/js/main.532567e0.js"
+  ]
+}
