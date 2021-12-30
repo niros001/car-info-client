@@ -25,11 +25,17 @@ const LoginModal = ({user: {loading, data, error}, visible, onCancel, login, sig
   const [signupElementHeight, setSignupElementHeight] = useState('initial');
   const [collapsed, setCollapsed] = useState(false);
 
+  const firstUpdate = useRef(true);
+
   useEffect(() => {
     if(!visible) {
-      loginForm.resetFields();
-      signupForm.resetFields();
-      setCollapsed(false);
+      if (firstUpdate.current) {
+        firstUpdate.current = false;
+      } else {
+        loginForm.resetFields();
+        signupForm.resetFields();
+        setCollapsed(false);
+      }
     } else {
       if (loginElement.current?.scrollHeight) setLoginElementHeight(loginElement.current?.scrollHeight);
       if (signupElement.current?.scrollHeight) setSignupElementHeight(signupElement.current?.scrollHeight);
