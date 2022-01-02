@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {ConfigProvider} from 'antd';
+import {ConfigProvider, Layout} from 'antd';
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import {commonActions} from './store/actions';
@@ -41,7 +41,9 @@ const WithTranslations = ({children, language, changeLanguage}) => {
 
   return (
       <ConfigProvider direction={dir}>
-        {children}
+        <Layout style={{background: 'white'}}>
+          {children}
+        </Layout>
       </ConfigProvider>
   )
 }
