@@ -5,7 +5,7 @@ import {CarOutlined} from '@ant-design/icons';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 8px;
+  padding: 12px;
 `
 
 const Content = styled.div`
@@ -47,7 +47,6 @@ const Text = styled.div`
   max-width: 80px;
   text-align: center;
 `
-
 const ReportIncludes = ({t}) => {
   const includes = useMemo(() => [
     {icon: <CarOutlined style={{fontSize: 40}} />, description: t('Impairment test and total loss')},
@@ -60,22 +59,19 @@ const ReportIncludes = ({t}) => {
 
   return (
       <Container>
-      <Title>
-      {t('What does the report include')}
-  What the report includes
-  </Title>
-  <Content>
-    {includes.map(({icon, description}, index) => (
-        <Item key={index}>
-          <IconWrapper>
-            {icon}
-          </IconWrapper>
-          <Text>{description}</Text>
-        </Item>
-    ))}
-  </Content>
-</Container>
-);
+        <Title>{t('Report includes title')}</Title>
+        <Content>
+          {includes.map(({icon, description}, index) => (
+              <Item key={index}>
+                <IconWrapper>
+                  {icon}
+                </IconWrapper>
+                <Text>{description}</Text>
+              </Item>
+          ))}
+        </Content>
+      </Container>
+  );
 }
 
 export default ReportIncludes;

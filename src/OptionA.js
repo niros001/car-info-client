@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Drawer} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {Header, FindCar, ReportIncludes} from './components/OptionA';
+import {Header, FindCar, ReportIncludes, AdditionalInfo} from './components/OptionA';
 import {User} from './components/Authentication';
 import {connect} from 'react-redux';
 import {commonActions} from './store/actions';
@@ -32,8 +32,9 @@ const App = ({changeLanguage}) => {
           <Container>
                 <Header openDrawer={() => setVisible(true)} />
                 <Content>
-                      <FindCar t={t} />
-                      <ReportIncludes t={t} />
+                  <FindCar t={t} />
+                  <ReportIncludes t={t} />
+                  <AdditionalInfo t={t} />
                 </Content>
                 <Drawer title="Basic Drawer" placement={i18n.dir() === 'rtl' ? 'right' : 'left'} onClose={() => setVisible(false)} visible={visible}>
                   <User />
