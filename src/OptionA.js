@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Drawer} from 'antd';
 import {useTranslation} from 'react-i18next';
 import {Header, FindCar, ReportIncludes} from './components/OptionA';
+import {User} from './components/Authentication';
 import {connect} from 'react-redux';
 import {commonActions} from './store/actions';
 
@@ -33,8 +34,9 @@ const App = ({changeLanguage}) => {
                       <ReportIncludes t={t} />
                 </Content>
                 <Drawer title="Basic Drawer" placement={i18n.dir() === 'rtl' ? 'right' : 'left'} onClose={() => setVisible(false)} visible={visible}>
-                      <p onClick={() => changeLanguage('en')}>Change to English</p>
-                      <p onClick={() => changeLanguage('he')}>Change to Hebrew</p>
+                  <User />
+                  <p onClick={() => changeLanguage('en')}>Change to English</p>
+                  <p onClick={() => changeLanguage('he')}>Change to Hebrew</p>
                 </Drawer>
           </Container>
       );
