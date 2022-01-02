@@ -5,8 +5,8 @@ import {BrowserRouter} from "react-router-dom";
 import 'antd/dist/antd.css';
 import './index.css';
 import WithTranslations from './WithTranslations';
-import App from './App';
-// import App2 from './App2';
+// import App from './App';
+import OptionA from './OptionA';
 import reportWebVitals from './reportWebVitals';
 import store from './store';
 
@@ -15,8 +15,8 @@ ReactDOM.render(
       <Provider store={store}>
         <WithTranslations>
           <BrowserRouter>
-            <App />
-            {/*<App2 />*/}
+            {/*<App />*/}
+            <OptionA />
           </BrowserRouter>
         </WithTranslations>
       </Provider>
