@@ -24,7 +24,7 @@ const Content = styled.div`
   margin-top: 50px;
 `
 
-const App = ({changeLanguage}) => {
+const OptionA = ({changeLanguage, getReport}) => {
       const {t, i18n} = useTranslation();
       const [visible, setVisible] = useState(false);
 
@@ -32,7 +32,7 @@ const App = ({changeLanguage}) => {
           <Container>
                 <Header openDrawer={() => setVisible(true)} />
                 <Content>
-                  <FindCar t={t} />
+                  <FindCar t={t} getReport={getReport} />
                   <ReportIncludes t={t} />
                   <AdditionalInfo t={t} />
                 </Content>
@@ -51,4 +51,4 @@ const App = ({changeLanguage}) => {
       );
 }
 
-export default connect(null, commonActions)(App);
+export default connect(({common: {report}}) => ({report}), commonActions)(OptionA);

@@ -37,14 +37,14 @@ const SalePrice = styled.div`
   align-self: flex-start;
 `
 
-const FindCar = ({t}) => (
+const FindCar = ({t, getReport}) => (
     <Container>
       <>
         <Title>{t('Buy car')}</Title>
         <Subtitle>{t('Check car report')}</Subtitle>
         <InputWrapper>
           <Input type="number" style={{textAlign: 'center !important'}} suffix={<SearchOutlined />} />
-          <Button style={{margin: 5, background: '#FEB255', color: 'white', border: 'none'}}>{t('Check')}</Button>
+          <Button style={{margin: 5, background: '#FEB255', color: 'white', border: 'none'}} onClick={getReport}>{t('Check')}</Button>
         </InputWrapper>
       </>
       <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
