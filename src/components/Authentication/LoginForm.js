@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {Form, Input, Checkbox, Button} from 'antd';
 import {MailOutlined, KeyOutlined} from '@ant-design/icons';
 
-const LoginForm = ({loading, form, login}) => {
+const LoginForm = ({loading, form, login, onResetPassword}) => {
   const onFinish = useCallback((values) => {
     login(values);
   }, [login]);
@@ -63,7 +63,7 @@ const LoginForm = ({loading, form, login}) => {
           >
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-          <Button type="link">
+          <Button type="link" onClick={onResetPassword}>
             Reset password
           </Button>
         </div>

@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {Modal, Button, notification, Divider, Form} from 'antd';
-import {LoginForm, SignupForm} from '../Authentication';
+import {LoginForm, SignupForm, ResetPasswordForm} from '../Authentication';
 
 const Content = styled.div`
   display: flex;
@@ -17,15 +17,16 @@ const Collapsed = styled.div`
 `
 
 const LoginModal = ({user: {loading, data, error}, visible, onCancel, login, signup}) => {
+  const firstUpdate = useRef(true);
   const loginElement = useRef(null);
   const signupElement = useRef(null);
   const [loginForm] = Form.useForm();
   const [signupForm] = Form.useForm();
+  const [resetPasswordForm] = Form.useForm();
   const [loginElementHeight, setLoginElementHeight] = useState('initial');
   const [signupElementHeight, setSignupElementHeight] = useState('initial');
   const [collapsed, setCollapsed] = useState(false);
-
-  const firstUpdate = useRef(true);
+  const [resetMode, setResetMode] = useState(false);
 
   useEffect(() => {
     if(!visible) {
@@ -34,13 +35,15 @@ const LoginModal = ({user: {loading, data, error}, visible, onCancel, login, sig
       } else {
         loginForm.resetFields();
         signupForm.resetFields();
+        resetPasswordForm.resetFields();
         setCollapsed(false);
+        setResetMode(false);
       }
     } else {
       if (loginElement.current?.scrollHeight) setLoginElementHeight(loginElement.current?.scrollHeight);
       if (signupElement.current?.scrollHeight) setSignupElementHeight(signupElement.current?.scrollHeight);
     }
-  }, [visible, loginForm, signupForm])
+  }, [visible, loginForm, signupForm, resetPasswordForm])
 
   useEffect(() => {
     if (error) {
@@ -68,15 +71,24 @@ const LoginModal = ({user: {loading, data, error}, visible, onCancel, login, sig
           width={350}
       >
         <Content>
-          <Collapsed ref={loginElement} collapsed={collapsed} scrollHeight={loginElementHeight}>
-            <LoginForm loading={loading} form={loginForm} login={login} />
-          </Collapsed>
-          <Divider style={{margin: 0}}>
-            <Button type="link" onClick={() => setCollapsed(!collapsed)}>{collapsed ? 'LOGIN' : 'OR REGISTER'}</Button>
-          </Divider>
-          <Collapsed ref={signupElement} collapsed={!collapsed} scrollHeight={signupElementHeight}>
-            <SignupForm loading={loading} form={signupForm} signup={signup} />
-          </Collapsed>
+          {!resetMode && (
+              <>
+                <Collapsed ref={loginElement} collapsed={collapsed} scrollHeight={loginElementHeight}>
+                  <LoginForm loading={loading} form={loginForm} login={login} onResetPassword={() => setResetMode(true)} />
+                </Collapsed>
+                <Divider style={{margin: 0}}>
+                  <Button type="link" onClick={() => setCollapsed(!collapsed)}>{collapsed ? 'LOGIN' : 'OR REGISTER'}</Button>
+                </Divider>
+                <Collapsed ref={signupElement} collapsed={!collapsed} scrollHeight={signupElementHeight}>
+                  <SignupForm loading={loading} form={signupForm} signup={signup} />
+                </Collapsed>
+              </>
+          )}
+          {resetMode && (
+              <Collapsed>
+                <ResetPasswordForm form={resetPasswordForm} onBack={() => setResetMode(false)} />
+              </Collapsed>
+          )}
         </Content>
       </Modal>
   )
