@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
-import {notification} from 'antd';
+import {notification, Avatar} from 'antd';
 import {connect} from 'react-redux';
 import {UserOutlined} from '@ant-design/icons';
 import {LoginModal} from '../Authentication'
@@ -12,15 +12,6 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: 2px 6px;
-`
-
-const Circle = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #1890ff;
-  padding: 5px;
 `
 
 const Text = styled.div`
@@ -56,9 +47,7 @@ const User = ({user, login, signup, logout}) => {
 
   return (
       <Container>
-        <Circle>
-          <UserOutlined style={{color: 'white'}} />
-        </Circle>
+        <Avatar size="small" icon={<UserOutlined />} />
         {!user.data && <ButtonText onClick={() => setVisible(true)}>Log In</ButtonText>}
         {user.data && <Text>Logged as: <b>{user.data.email}</b></Text>}
         {user.data && <ButtonText onClick={onLogout}><b>Logout</b></ButtonText>}

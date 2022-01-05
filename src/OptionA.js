@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Drawer} from 'antd';
+import {Divider, Drawer} from 'antd';
 import {useTranslation} from 'react-i18next';
 import {Header, FindCar, ReportIncludes, AdditionalInfo} from './components/OptionA';
 import {User} from './components/Authentication';
@@ -38,14 +38,14 @@ const OptionA = ({changeLanguage, getReport}) => {
                 </Content>
                 <Drawer title="Basic Drawer" placement={i18n.dir() === 'rtl' ? 'right' : 'left'} onClose={() => setVisible(false)} visible={visible}>
                   <User />
+                  <Divider />
                   <p onClick={() => changeLanguage('en')}>
-                    <span>Change to English</span>
                     <img src={us_flag} alt={'us_flag'} height={20} style={{marginLeft: 5}} />
                   </p>
                   <p onClick={() => changeLanguage('he')}>
-                    <span>Change to Hebrew</span>
                     <img src={il_flag} alt={'il_flag'} height={20} style={{marginLeft: 5}} />
                   </p>
+                  <Divider />
                 </Drawer>
           </Container>
       );
