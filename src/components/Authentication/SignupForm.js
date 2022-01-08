@@ -47,6 +47,10 @@ const SignupForm = ({loading, form, signup}) => {
                 required: true,
                 message: 'Please input your password!',
               },
+              {
+                pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                message: 'Min 8 chars, at least 1 letter and 1 number'
+              }
             ]}
         >
           <Input.Password placeholder="Password" autoComplete="new-password" />
@@ -60,6 +64,14 @@ const SignupForm = ({loading, form, signup}) => {
                 required: true,
                 message: 'Please input your confirm password!',
               },
+              {
+                validator: (rule, value, callback) => {
+                  if (value && (form.getFieldValue('password') !== value)) {
+                    return callback('Passwords do not match');
+                  }
+                  return callback();
+                },
+              }
             ]}
         >
           <Input.Password placeholder="Confirm password" autoComplete="new-password" />

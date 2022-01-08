@@ -1,22 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-import WithTranslations from './WithTranslations';
-// import App from './App';
-import OptionA from './OptionA';
 import reportWebVitals from './reportWebVitals';
+import WithTranslations from './WithTranslations';
 import store from './store';
+import App from './App';
+import OptionA from './OptionA';
+import {SetPasswordForm} from './components/Authentication';
 
 ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>
         <WithTranslations>
           <BrowserRouter>
-            {/*<App />*/}
-            <OptionA />
+            <Routes>
+              <Route path="/car-info-client" element={<OptionA />} />
+              <Route path="/car-info-client/old" element={<App />} />
+              <Route path="/car-info-client/set-password/:token" element={<SetPasswordForm />} />
+            </Routes>
           </BrowserRouter>
         </WithTranslations>
       </Provider>

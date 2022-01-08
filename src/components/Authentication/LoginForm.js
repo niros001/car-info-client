@@ -46,10 +46,6 @@ const LoginForm = ({loading, form, login, onResetPassword}) => {
               {
                 required: true,
                 message: 'Please input your password!',
-              },
-              {
-                pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                message: 'Min 8 chars, at least 1 letter and 1 number'
               }
             ]}
         >
