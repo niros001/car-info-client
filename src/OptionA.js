@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Divider, Drawer} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {Header, FindCar, ReportIncludes, AdditionalInfo} from './components/OptionA';
+import {Header, FindCar, ReportIncludes, AdditionalInfo, Refund} from './components/OptionA';
 import {User} from './components/Authentication';
 import {connect} from 'react-redux';
 import {commonActions} from './store/actions';
@@ -35,6 +35,7 @@ const OptionA = ({changeLanguage, getReport}) => {
                   <FindCar t={t} getReport={getReport} />
                   <ReportIncludes t={t} />
                   <AdditionalInfo t={t} />
+                  <Refund t={t} />
                 </Content>
                 <Drawer title="Basic Drawer" placement={i18n.dir() === 'rtl' ? 'right' : 'left'} onClose={() => setVisible(false)} visible={visible}>
                   <User />

@@ -22,6 +22,9 @@ const translations = {
       "Sounds revolutionary info": "This information is indeed revolutionary! All the data and findings summarized for you in the check car report are collected from public and private databases, and from official sources - including the Licensing Office, the Bank of Israel, the insurance companies, the Registrar of Pledges, the Israel Police, the Ministry of Justice and more.",
       "It is legal": "It is legal",
       "It is legal info": "Definitely! Following a series of reforms in the areas of access to databases from all government ministries, we are happy to take up the gauntlet and be the pioneers who serve you, the real revolution in buying a used car - and at a price worth every penny",
+      "Satisfied report": "Satisfied with the data of the report you published?",
+      "Full refund": "You deserve a full refund on the report",
+      "Refund info": "Satisfied with the data of the report you published? magnificent! If you decide to purchase the vehicle we tested for you, we also recommend performing a physical purchase test at an authorized testing institute, so that you are completely quiet and relaxed. We have attached a gift coupon to use, for use at one of the famous licensed testing institutes around the country. When presenting the coupon, enjoy a NIS 149 discount for a follow-up test and also a 6-month warranty on the test!",
     }
   },
   he: {
@@ -47,6 +50,9 @@ const translations = {
       "Sounds revolutionary info": "מגיע המידע זה אכן מהפכני! כל הנתונים והממצאים המרוכזים עבורכם בדוח check car נאספים ממאגרים ציבוריים ופרטיים, ומגורמים רשמיים - ביניהם משרד הרישוי, בנק ישראל, חברות הביטוח, רשם המשכונות, משטרת ישראל, משרד המשפטים ועוד",
       "It is legal": "האם זה חוקי",
       "It is legal info": "בהחלט! בעקבות שורה של רפורמות בתחומי הנגשת מאגרי הנתונים מכלל משרדי הממשלה, אנו שמחים להרים את הכפפה ולהיות החלוצים שמגישים לכם, את המהפכה האמיתית בקניית רכב משומש - ובמחיר שווה לכל כיס",
+      "Satisfied report": "מרוצים מנתוני הדוח שהוצאתם?",
+      "Full refund": "מגיע לכם החזר כספי מלא על הדוח",
+      "Refund info": "מרוצים מנתוני הדוח שהוצאתם? נהדר! במידה ותחליטו לרכוש את הרכב שבדקנו עבורכם, אנו ממליצים לבצע בנוסף, גם בדיקת קנייה פיזית במכון בדיקה מורשה, כדי שתהיו שקטים ורגועים לגמרי. צירפנו לדוחקופון מתנה, לשימוש באחד ממכוני הבדיקה המורשים המפורסמים ברחבי הארץ. בהצגת הקופון תהנו מ-149₪ הנחה לבדיקת המשך וגם מ-6 חודשי אחריות על הבדיקה!"
     }
   },
   fr: {
