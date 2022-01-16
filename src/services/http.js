@@ -17,7 +17,7 @@ export const api = ({url, method, data, requireAuth}) => fetch(url, {
     .then(async (r) => {
       if (r.status !== 200) {
         const json = await r.json();
-        throw new Error(json.error);
+        throw new Error(json.message);
       }
       return r.json();
     })
