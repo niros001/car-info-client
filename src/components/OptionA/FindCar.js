@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Button, Input} from 'antd';
-import {SearchOutlined} from '@ant-design/icons';
+import {Input} from 'antd';
+import {ReportIncludes} from './index';
 
 const PRICE = 149;
 
@@ -10,10 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #2A1DA0;
-  //background-image: url("https://cdn.pixabay.com/photo/2016/07/23/04/05/business-1536236_960_720.png");
-  //background-repeat: no-repeat;
-  //background-size: cover;
+  background: linear-gradient(0deg, rgba(22,0,144,1) 50%, rgba(79,0,152,1) 100%);
   padding: 16px 8px;
 `
 
@@ -30,25 +27,47 @@ const Subtitle = styled.div`
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
 `
 
 const SalePrice = styled.div`
   font-size: 14px;
-  align-self: flex-start;
+  color: #FECD89;
+  margin: 20px 0;
 `
 
-const FindCar = ({t, getReport}) => (
-    <Container>
-      <>
-        <Title>{t('Buy car')}</Title>
-        <Subtitle>{t('Check car report')}</Subtitle>
-        <InputWrapper>
-          <Input type="number" style={{textAlign: 'center !important'}} suffix={<SearchOutlined />} />
-          <Button style={{margin: 5, background: '#FEB255', color: 'white', border: 'none'}} onClick={getReport}>{t('Check')}</Button>
-        </InputWrapper>
-      </>
-      <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
-    </Container>
-)
+const CheckButton = styled.div`
+  position: absolute;
+  left: -20px;
+  color: white;
+  background: linear-gradient(270deg, #4A16A5 0%, #E451C1 50%);
+  border-radius: 25px;
+  padding: 6px 18px;
+  cursor: pointer;
+`
+
+const FindCar = ({t, getReport}) => {
+  const [value, setValue] = useState();
+  return (
+      <Container>
+        <>
+          <Title>{t('Buy car')}</Title>
+          <Subtitle>{t('Check car report')}</Subtitle>
+          <img src={require('../../assets/car.png')} alt="car" width={200} />
+          <InputWrapper>
+            <Input
+                maxLength={8}
+                value={value}
+                onChange={({target: {value}}) => setValue(value)}
+                style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 150}}
+            />
+            <CheckButton onClick={getReport}>{t('Check')}</CheckButton>
+          </InputWrapper>
+        </>
+        <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
+        <ReportIncludes t={t} />
+      </Container>
+  )
+}
 
 export default FindCar;

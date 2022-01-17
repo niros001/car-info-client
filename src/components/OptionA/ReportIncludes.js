@@ -31,30 +31,28 @@ const IconWrapper = styled.div`
   background-color: #E7F9FE;
   border-radius: 50%;
   border: 3px solid;
-  border-color: #FEB255 #FEB255 #FEB255 transparent;
+  border-color: #24E2B1 #24E2B1 #24E2B1 transparent;
 `
 
 const Title = styled.div`
   font-size: 18px;
   font-weight: bold;
-  color: black;
 `
 
 const Text = styled.div`
   font-size: 13px;
-  color: black;
   margin-top: 15px;
   max-width: 80px;
   text-align: center;
 `
 const ReportIncludes = ({t}) => {
   const includes = useMemo(() => [
-    {icon: <CarOutlined style={{fontSize: 40}} />, description: t('Impairment test and total loss')},
-    {icon: <CarOutlined style={{fontSize: 40}} />, description: t('Maintenance costs and red flags')},
-    {icon: <CarOutlined style={{fontSize: 40}} />, description: t('Official mortgage check')},
-    {icon: <CarOutlined style={{fontSize: 40}} />, description: t('Vehicle history from database')},
-    {icon: <CarOutlined style={{fontSize: 40}} />, description: t('Checking the seller vehicle')},
-    {icon: <CarOutlined style={{fontSize: 40}} />, description: t('Checking vehicle costs')},
+    {icon: <CarOutlined style={{fontSize: 40 , color: 'rgba(22,0,144,1)'}} />, description: t('Impairment test and total loss')},
+    {icon: <CarOutlined style={{fontSize: 40, color: 'rgba(22,0,144,1)'}} />, description: t('Maintenance costs and red flags')},
+    {icon: <CarOutlined style={{fontSize: 40, color: 'rgba(22,0,144,1)'}} />, description: t('Official mortgage check')},
+    {icon: <CarOutlined style={{fontSize: 40, color: 'rgba(22,0,144,1)'}} />, description: t('Vehicle history from database')},
+    {icon: <CarOutlined style={{fontSize: 40, color: 'rgba(22,0,144,1)'}} />, description: t('Checking the seller vehicle')},
+    {icon: <CarOutlined style={{fontSize: 40, color: 'rgba(22,0,144,1)'}} />, description: t('Checking vehicle costs')},
   ], [t])
 
   return (

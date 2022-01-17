@@ -23,7 +23,7 @@ const Info = styled.div`
 
 const Refund = ({t}) => (
     <Container>
-      <Button type="primary">{t('Satisfied report')}</Button>
+      <Button type="primary" style={{backgroundColor: 'rgb(22, 0, 144)'}}>{t('Satisfied report')}</Button>
       <Title>{t('Full refund')}</Title>
       <img src={require('../../assets/refund.png')} alt="logo" height={250} />
       <Info>{t('Refund info')}</Info>

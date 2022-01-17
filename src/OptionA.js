@@ -33,7 +33,6 @@ const OptionA = ({changeLanguage, getReport}) => {
                 <Header openDrawer={() => setVisible(true)} />
                 <Content>
                   <FindCar t={t} getReport={getReport} />
-                  <ReportIncludes t={t} />
                   <AdditionalInfo t={t} />
                   <Refund t={t} />
                 </Content>
