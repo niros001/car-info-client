@@ -25,6 +25,8 @@ const translations = {
       "Satisfied report": "Satisfied with the data of the report you published?",
       "Full refund": "You deserve a full refund on the report",
       "Refund info": "Satisfied with the data of the report you published? magnificent! If you decide to purchase the vehicle we tested for you, we also recommend performing a physical purchase test at an authorized testing institute, so that you are completely quiet and relaxed. We have attached a gift coupon to use, for use at one of the famous licensed testing institutes around the country. When presenting the coupon, enjoy a NIS 149 discount for a follow-up test and also a 6-month warranty on the test!",
+      "Enter a vehicle number - btn": "Enter a vehicle number and try now with a click",
+      "How report looks": "Want to see what a check car report looks like",
     }
   },
   he: {
@@ -52,7 +54,9 @@ const translations = {
       "It is legal info": "בהחלט! בעקבות שורה של רפורמות בתחומי הנגשת מאגרי הנתונים מכלל משרדי הממשלה, אנו שמחים להרים את הכפפה ולהיות החלוצים שמגישים לכם, את המהפכה האמיתית בקניית רכב משומש - ובמחיר שווה לכל כיס",
       "Satisfied report": "מרוצים מנתוני הדוח שהוצאתם?",
       "Full refund": "מגיע לכם החזר כספי מלא על הדוח",
-      "Refund info": "מרוצים מנתוני הדוח שהוצאתם? נהדר! במידה ותחליטו לרכוש את הרכב שבדקנו עבורכם, אנו ממליצים לבצע בנוסף, גם בדיקת קנייה פיזית במכון בדיקה מורשה, כדי שתהיו שקטים ורגועים לגמרי. צירפנו לדוחקופון מתנה, לשימוש באחד ממכוני הבדיקה המורשים המפורסמים ברחבי הארץ. בהצגת הקופון תהנו מ-149₪ הנחה לבדיקת המשך וגם מ-6 חודשי אחריות על הבדיקה!"
+      "Refund info": "מרוצים מנתוני הדוח שהוצאתם? נהדר! במידה ותחליטו לרכוש את הרכב שבדקנו עבורכם, אנו ממליצים לבצע בנוסף, גם בדיקת קנייה פיזית במכון בדיקה מורשה, כדי שתהיו שקטים ורגועים לגמרי. צירפנו לדוחקופון מתנה, לשימוש באחד ממכוני הבדיקה המורשים המפורסמים ברחבי הארץ. בהצגת הקופון תהנו מ-149₪ הנחה לבדיקת המשך וגם מ-6 חודשי אחריות על הבדיקה!",
+      "Enter a vehicle number - btn": "הזינו מספר רכב ונסו עכשיו בקליק",
+      "How report looks": "רוצים לראות איך נראה דוח check car",
     }
   },
   fr: {

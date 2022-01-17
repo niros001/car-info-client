@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Divider, Drawer} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {Header, FindCar, ReportIncludes, AdditionalInfo, Refund} from './components/OptionA';
+import {Header, FindCar, AdditionalInfo, Refund} from './components/OptionA';
 import {User} from './components/Authentication';
 import {connect} from 'react-redux';
 import {commonActions} from './store/actions';
 import us_flag from './assets/flags-4x3/us.svg';
 import il_flag from './assets/flags-4x3/il.svg';
+import ReportViewer from './components/OptionA/ReportViewer';
 
 
 const Container = styled.div`
@@ -35,8 +36,15 @@ const OptionA = ({changeLanguage, getReport}) => {
                   <FindCar t={t} getReport={getReport} />
                   <AdditionalInfo t={t} />
                   <Refund t={t} />
+                  <ReportViewer t={t} />
                 </Content>
-                <Drawer title="Basic Drawer" placement={i18n.dir() === 'rtl' ? 'right' : 'left'} onClose={() => setVisible(false)} visible={visible}>
+                <Drawer
+                    title="Basic Drawer"
+                    width={250}
+                    placement={i18n.dir() === 'rtl' ? 'right' : 'left'}
+                    onClose={() => setVisible(false)}
+                    visible={visible}
+                >
                   <User />
                   <Divider />
                   <p onClick={() => changeLanguage('en')}>
