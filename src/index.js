@@ -17,9 +17,9 @@ ReactDOM.render(
         <WithTranslations>
           <BrowserRouter>
             <Routes>
-              <Route path="/car-info-client" element={<OptionA />} />
-              <Route path="/car-info-client/old" element={<App />} />
-              <Route path="/car-info-client/set-password/:token" element={<SetPasswordForm />} />
+              <Route path="/" element={<OptionA />} />
+              <Route path="/old" element={<App />} />
+              <Route path="/set-password/:token" element={<SetPasswordForm />} />
             </Routes>
           </BrowserRouter>
         </WithTranslations>
