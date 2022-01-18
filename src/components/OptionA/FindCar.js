@@ -10,8 +10,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(0deg, rgba(22,0,144,1) 50%, rgba(79,0,152,1) 100%);
-  padding: 16px 8px;
+  background: linear-gradient(0deg, rgba(22,0,144,1) 0%, rgba(79,0,152,1) 100%);
+  padding: 16px 12px;
 `
 
 const Title = styled.div`

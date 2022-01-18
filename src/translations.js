@@ -27,6 +27,15 @@ const translations = {
       "Refund info": "Satisfied with the data of the report you published? magnificent! If you decide to purchase the vehicle we tested for you, we also recommend performing a physical purchase test at an authorized testing institute, so that you are completely quiet and relaxed. We have attached a gift coupon to use, for use at one of the famous licensed testing institutes around the country. When presenting the coupon, enjoy a NIS 149 discount for a follow-up test and also a 6-month warranty on the test!",
       "Enter a vehicle number - btn": "Enter a vehicle number and try now with a click",
       "How report looks": "Want to see what a check car report looks like",
+      "Contact us": "Contact us",
+      "Send": "Send",
+      "The commandments": "The commandments",
+      "Report of stolen vehicle": "Report of stolen vehicle",
+      "Report of a car seller": "Report of a car seller",
+      "Accessibility": "Accessibility",
+      "To cancel an order": "To cancel an order",
+      "Terms": "Terms",
+      "Privacy Policy": "Privacy Policy",
     }
   },
   he: {
@@ -57,6 +66,15 @@ const translations = {
       "Refund info": "מרוצים מנתוני הדוח שהוצאתם? נהדר! במידה ותחליטו לרכוש את הרכב שבדקנו עבורכם, אנו ממליצים לבצע בנוסף, גם בדיקת קנייה פיזית במכון בדיקה מורשה, כדי שתהיו שקטים ורגועים לגמרי. צירפנו לדוחקופון מתנה, לשימוש באחד ממכוני הבדיקה המורשים המפורסמים ברחבי הארץ. בהצגת הקופון תהנו מ-149₪ הנחה לבדיקת המשך וגם מ-6 חודשי אחריות על הבדיקה!",
       "Enter a vehicle number - btn": "הזינו מספר רכב ונסו עכשיו בקליק",
       "How report looks": "רוצים לראות איך נראה דוח check car",
+      "Contact us": "דברו איתנו",
+      "Send": "שלח",
+      "The commandments": "הדיברות",
+      "Report of stolen vehicle": "דיווח על רכב גנוב",
+      "Report of a car seller": "דיווח על מוכר רכב",
+      "Accessibility": "נגישות",
+      "To cancel an order": "לביטול הזמנה",
+      "Terms": "תקנון",
+      "Privacy Policy": "מדיניות פרטיות",
     }
   },
   fr: {

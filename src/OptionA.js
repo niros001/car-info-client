@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Divider, Drawer} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {Header, FindCar, AdditionalInfo, Refund} from './components/OptionA';
+import {Header, FindCar, AdditionalInfo, Refund, ContactUs, Footer} from './components/OptionA';
 import {User} from './components/Authentication';
 import {connect} from 'react-redux';
 import {commonActions} from './store/actions';
@@ -10,14 +10,12 @@ import us_flag from './assets/flags-4x3/us.svg';
 import il_flag from './assets/flags-4x3/il.svg';
 import ReportViewer from './components/OptionA/ReportViewer';
 
-
 const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
   color: white;
 `
-
 
 const Content = styled.div`
   display: flex;
@@ -37,6 +35,8 @@ const OptionA = ({changeLanguage, getReport}) => {
                   <AdditionalInfo t={t} />
                   <Refund t={t} />
                   <ReportViewer t={t} />
+                  <ContactUs t={t} />
+                  <Footer t={t} />
                 </Content>
                 <Drawer
                     title="Basic Drawer"
