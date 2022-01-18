@@ -1,7 +1,9 @@
 import React, {useCallback} from 'react';
 import {Form, Input, Button} from 'antd';
+import {useTranslation} from 'react-i18next';
 
 const SignupForm = ({loading, form, signup}) => {
+  const {t} = useTranslation();
   const onFinish = useCallback((values) => {
     signup(values);
   }, [signup]);
@@ -20,66 +22,66 @@ const SignupForm = ({loading, form, signup}) => {
           form={form}
       >
         <Form.Item
-            label="Full name"
+            label={t('Full name')}
             name="fullName"
         >
-          <Input placeholder="Full name" autoComplete="new-password" />
+          <Input placeholder={t('Full name')} autoComplete="new-password" />
         </Form.Item>
 
         <Form.Item
-            label="Email"
+            label={t('Email address')}
             name="email"
             rules={[
               {
                 required: true,
-                message: 'Please input your email!',
+                message: t('Email require'),
               },
             ]}
         >
-          <Input placeholder="Email address" autoComplete="new-password" />
+          <Input placeholder={t('Email address')} autoComplete="new-password" />
         </Form.Item>
 
         <Form.Item
-            label="Password"
+            label={t('Password')}
             name="password"
             rules={[
               {
                 required: true,
-                message: 'Please input your password!',
+                message: t('Password require'),
               },
               {
                 pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                message: 'Min 8 chars, at least 1 letter and 1 number'
+                message: t('Password conditions')
               }
             ]}
         >
-          <Input.Password placeholder="Password" autoComplete="new-password" />
+          <Input.Password placeholder={t('Password')} autoComplete="new-password" />
         </Form.Item>
 
         <Form.Item
-            label="Confirm password"
+            label={t('Confirm password')}
             name="confirmPassword"
             rules={[
               {
                 required: true,
-                message: 'Please input your confirm password!',
+                message: t('Confirm password require'),
               },
               {
                 validator: (rule, value, callback) => {
                   if (value && (form.getFieldValue('password') !== value)) {
-                    return callback('Passwords do not match');
+                    return callback(t('Passwords do not match'));
                   }
                   return callback();
                 },
               }
             ]}
         >
-          <Input.Password placeholder="Confirm password" autoComplete="new-password" />
+          <Input.Password placeholder={t('Confirm password')} autoComplete="new-password" />
         </Form.Item>
 
         <Form.Item>
           <Button htmlType="submit" loading={loading} style={{width: '100%'}}>
-            SIGNUP
+            {t('SIGNUP')}
           </Button>
         </Form.Item>
       </Form>

@@ -1,9 +1,11 @@
 import React, {useCallback, useState} from 'react';
 import {Form, Input, Button, notification, Alert} from 'antd';
-import {MailOutlined, ArrowLeftOutlined} from '@ant-design/icons';
+import {useTranslation} from 'react-i18next';
+import {MailOutlined, ArrowLeftOutlined, ArrowRightOutlined} from '@ant-design/icons';
 import {resetPassword} from '../../services/authApi';
 
 const ResetPasswordForm = ({form, onBack}) => {
+  const {t, i18n} = useTranslation();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const onFinish = useCallback((values) => {
@@ -16,11 +18,11 @@ const ResetPasswordForm = ({form, onBack}) => {
         .catch((error) => {
           setLoading(false);
           notification.error({
-            message: 'Something went wrong..',
+            message: `${t('Something went wrong')}...`,
             description: error.message,
           })
         })
-  }, []);
+  }, [t]);
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
@@ -40,26 +42,26 @@ const ResetPasswordForm = ({form, onBack}) => {
             rules={[
               {
                 required: true,
-                message: 'Please input your email!',
+                message: t('Email require'),
               },
               {
                 pattern: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
-                message: 'Email address is not valid',
+                message: t('Email address is not valid'),
               },
             ]}
         >
-          <Input addonBefore={<MailOutlined />} placeholder="Email address" autoComplete="new-password" />
+          <Input addonBefore={<MailOutlined />} placeholder={t('Email address')} autoComplete="new-password" />
         </Form.Item>
 
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={loading} style={{width: '100%'}}>
-            RESET PASSWORD
+            {t('Reset password').toUpperCase()}
           </Button>
         </Form.Item>
 
         <Form.Item>
-          <Button type="default" onClick={onBack} icon={<ArrowLeftOutlined />} style={{width: '100%'}}>
-            BACK
+          <Button type="default" onClick={onBack} icon={i18n.dir() === 'rtl' ? <ArrowRightOutlined /> : <ArrowLeftOutlined />} style={{width: '100%'}}>
+            {t('BACK')}
           </Button>
         </Form.Item>
       </Form>
@@ -67,8 +69,8 @@ const ResetPasswordForm = ({form, onBack}) => {
 
   return (
       <Alert
-          message="Reset Password"
-          description="A request to reset your password has been sent to your email address. Please check your inbox to continue the process."
+          message={t('Reset password')}
+          description={t('Reset password - Alert description')}
           type="success"
           showIcon
       />

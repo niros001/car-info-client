@@ -53,7 +53,7 @@ const FindCar = ({t, getReport}) => {
         <>
           <Title>{t('Buy car')}</Title>
           <Subtitle>{t('Check car report')}</Subtitle>
-          <img src={require('../../assets/car.png')} alt="car" width={200} />
+          <img src={require('../assets/car.png')} alt="car" width={200} />
           <InputWrapper>
             <Input
                 maxLength={8}

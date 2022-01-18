@@ -8,7 +8,6 @@ import reportWebVitals from './reportWebVitals';
 import WithTranslations from './WithTranslations';
 import store from './store';
 import App from './App';
-import OptionA from './OptionA';
 import {SetPasswordForm} from './components/Authentication';
 
 ReactDOM.render(
@@ -17,8 +16,7 @@ ReactDOM.render(
         <WithTranslations>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<OptionA />} />
-              <Route path="/old" element={<App />} />
+              <Route path="/" element={<App />} />
               <Route path="/set-password/:token" element={<SetPasswordForm />} />
             </Routes>
           </BrowserRouter>

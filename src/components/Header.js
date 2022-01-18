@@ -21,7 +21,7 @@ const Container = styled.div`
 const Header = ({openDrawer}) => (
     <Container>
       <MenuOutlined onClick={openDrawer} style={{color: 'black'}} />
-      <img src={require('../../assets/logo.png')} alt="logo" height={30} />
+      <img src={require('../assets/logo.png')} alt="logo" height={30} />
     </Container>
 )
 

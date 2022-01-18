@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import styled from 'styled-components';
 import {Modal, Button, notification, Divider, Form} from 'antd';
+import {useTranslation} from 'react-i18next';
 import {LoginForm, SignupForm, ResetPasswordForm} from '../Authentication';
 
 const Content = styled.div`
@@ -17,6 +18,7 @@ const Collapsed = styled.div`
 `
 
 const LoginModal = ({user: {loading, data, error}, visible, onCancel, login, signup}) => {
+  const {t} = useTranslation();
   const firstUpdate = useRef(true);
   const loginElement = useRef(null);
   const signupElement = useRef(null);
@@ -48,23 +50,23 @@ const LoginModal = ({user: {loading, data, error}, visible, onCancel, login, sig
   useEffect(() => {
     if (error) {
       notification.error({
-        message: 'Something went wrong..',
+        message: `${t('Something went wrong')}...`,
         description: error.message,
       })
     }
-  }, [error])
+  }, [error, t])
 
   useEffect(() => {
     if (data) {
       notification.success({
-        message: 'User logged in!!',
+        message: t('User logged in'),
       })
     }
-  }, [data])
+  }, [data, t])
 
   return (
       <Modal
-          title="Login account"
+          title={t('Login account')}
           visible={visible}
           footer={null}
           onCancel={onCancel}
@@ -77,7 +79,7 @@ const LoginModal = ({user: {loading, data, error}, visible, onCancel, login, sig
                   <LoginForm loading={loading} form={loginForm} login={login} onResetPassword={() => setResetMode(true)} />
                 </Collapsed>
                 <Divider style={{margin: 0}}>
-                  <Button type="link" onClick={() => setCollapsed(!collapsed)}>{collapsed ? 'LOGIN' : 'OR REGISTER'}</Button>
+                  <Button type="link" onClick={() => setCollapsed(!collapsed)}>{collapsed ? t('LOGIN') : t('OR REGISTER')}</Button>
                 </Divider>
                 <Collapsed ref={signupElement} collapsed={!collapsed} scrollHeight={signupElementHeight}>
                   <SignupForm loading={loading} form={signupForm} signup={signup} />

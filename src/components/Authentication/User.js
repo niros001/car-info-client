@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {notification, Avatar} from 'antd';
 import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 import {UserOutlined} from '@ant-design/icons';
 import {LoginModal} from '../Authentication'
 import {authActions} from '../../store/actions';
@@ -30,6 +31,7 @@ const ButtonText = styled(Text)`
 `
 
 const User = ({user, login, signup, logout}) => {
+  const {t} = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -41,16 +43,16 @@ const User = ({user, login, signup, logout}) => {
   const onLogout = useCallback(() => {
     logout();
     notification.info({
-      message: 'User logged out'
+      message: t('User logged out')
     })
-  }, [logout])
+  }, [logout, t])
 
   return (
       <Container>
         <Avatar size="small" icon={<UserOutlined />} />
-        {!user.data && <ButtonText onClick={() => setVisible(true)}>Log In</ButtonText>}
-        {user.data && <Text>Logged as: <b>{user.data.email}</b></Text>}
-        {user.data && <ButtonText onClick={onLogout}><b>Logout</b></ButtonText>}
+        {!user.data && <ButtonText onClick={() => setVisible(true)}>{t('Log In')}</ButtonText>}
+        {user.data && <Text>{t('Logged as')}: <b>{user.data.email}</b></Text>}
+        {user.data && <ButtonText onClick={onLogout}><b>{t('Logout')}</b></ButtonText>}
         <LoginModal
             visible={visible}
             onCancel={() => setVisible(false)}

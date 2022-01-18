@@ -37,7 +37,7 @@ const Row = styled.div`
 
 const Footer = ({t}) => (
     <Container>
-      <img src={require('../../assets/logo.png')} alt="logo" height={30} />
+      <img src={require('../assets/logo.png')} alt="logo" height={30} />
       <ServicesContainer>
         <ServicesColumn>
           <Service>{t('The commandments')}</Service>

@@ -30,7 +30,7 @@ const ReportViewer = ({t}) => {
   return (
       <Container>
         <Button>{t('Enter a vehicle number - btn')}</Button>
-        <img src={require('../../assets/phone.png')} alt="phone" width={250}/>
+        <img src={require('../assets/phone.png')} alt="phone" width={250}/>
         <UnderlineText>{t('How report looks')}?</UnderlineText>
       </Container>
   );

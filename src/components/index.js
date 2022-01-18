@@ -5,3 +5,4 @@ export {default as AdditionalInfo} from './AdditionalInfo';
 export {default as Refund} from './Refund';
 export {default as ContactUs} from './ContactUs';
 export {default as Footer} from './Footer';
+export {default as DrawerSettings} from './DrawerSettings';

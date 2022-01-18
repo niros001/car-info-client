@@ -58,11 +58,11 @@ const ContactUs = ({t}) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your full name!',
+                  message: t('Full name require'),
                 },
               ]}
           >
-            <Input placeholder="Full name" autoComplete="new-password" />
+            <Input placeholder={t('Full name')} autoComplete="new-password" />
           </Form.Item>
 
           <Form.Item
@@ -70,11 +70,11 @@ const ContactUs = ({t}) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your phone number!',
+                  message: t('Phone number require'),
                 },
               ]}
           >
-            <Input placeholder="Phone number" autoComplete="new-password" />
+            <Input placeholder={t('Phone number')} autoComplete="new-password" />
           </Form.Item>
 
           <Form.Item
@@ -82,15 +82,15 @@ const ContactUs = ({t}) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input your email!',
+                  message: t('Email require'),
                 },
                 {
                   pattern: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
-                  message: 'Email address is not valid',
+                  message: t('Email address is not valid'),
                 },
               ]}
           >
-            <Input placeholder="Email address" autoComplete="new-password" />
+            <Input placeholder={'Email address'} autoComplete="new-password" />
           </Form.Item>
 
           <Form.Item>
