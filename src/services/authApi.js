@@ -1,6 +1,6 @@
 import {api} from './http';
 
-const baseUrl = 'http://localhost:2400/api/auth'
+const baseUrl = 'https://check-car-report.herokuapp.com/api/auth'
 
 export const login = (data) => api({url: `${baseUrl}/login`, method: 'POST', data})
     .then((resp) => ({...resp, ...data}))
