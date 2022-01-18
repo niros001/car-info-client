@@ -14,6 +14,7 @@ const Container = styled.div`
 `
 
 const Content = styled(Responsive)`
+  align-items: center;
   justify-content: space-between;
 `
 
@@ -63,7 +64,7 @@ const FindCar = ({t, getReport}) => {
                   maxLength={8}
                   value={value}
                   onChange={({target: {value}}) => setValue(value)}
-                  style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 150}}
+                  style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 200}}
               />
               <CheckButton onClick={getReport}>{t('Check')}</CheckButton>
             </InputWrapper>
