@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Button} from 'antd';
+import {Responsive} from './common';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
 `
 
 const Title = styled.div`
@@ -23,10 +23,12 @@ const Info = styled.div`
 
 const Refund = ({t}) => (
     <Container>
-      <Button type="primary" style={{backgroundColor: 'rgb(22, 0, 144)', width: '100%'}}>{t('Satisfied report')}</Button>
-      <Title>{t('Full refund')}</Title>
-      <img src={require('../assets/refund.png')} alt="logo" height={250} />
-      <Info>{t('Refund info')}</Info>
+      <Responsive>
+        <Button type="primary" style={{backgroundColor: 'rgb(22, 0, 144)', width: '100%', border: 'none'}}>{t('Satisfied report')}</Button>
+        <Title>{t('Full refund')}</Title>
+        <img src={require('../assets/refund.png')} alt="logo" height={250} />
+        <Info>{t('Refund info')}</Info>
+      </Responsive>
     </Container>
 );
 

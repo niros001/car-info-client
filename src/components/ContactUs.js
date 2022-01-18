@@ -1,13 +1,19 @@
 import React, {useCallback} from 'react';
 import styled from 'styled-components';
 import {Button, Form, Input} from 'antd';
+import {Responsive} from './common';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   background: linear-gradient(315deg, rgba(22,0,144,1) 0%, rgba(79,0,152,1) 100%);
-  padding: 30px 12px;
+  padding: 30px 0;
+`
+
+const Content = styled(Responsive)`
+  align-items: center;
+  width: 100%;
 `
 
 const Title = styled.div`
@@ -42,63 +48,65 @@ const ContactUs = ({t}) => {
 
   return (
       <Container>
-        <Title>{t('Contact us')}</Title>
-        <Form
-            name="contact-us"
-            layout="vertical"
-            autoComplete="off"
-            style={{width: '100%', maxWidth: 400}}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            form={form}
-        >
-          <input hidden autoComplete="false"/>
-          <Form.Item
-              name="fullName"
-              rules={[
-                {
-                  required: true,
-                  message: t('Full name require'),
-                },
-              ]}
+        <Content>
+          <Title>{t('Contact us')}</Title>
+          <Form
+              name="contact-us"
+              layout="vertical"
+              autoComplete="off"
+              style={{width: '100%'}}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              form={form}
           >
-            <Input placeholder={t('Full name')} autoComplete="new-password" />
-          </Form.Item>
+            <input hidden autoComplete="false"/>
+            <Form.Item
+                name="fullName"
+                rules={[
+                  {
+                    required: true,
+                    message: t('Full name require'),
+                  },
+                ]}
+            >
+              <Input placeholder={t('Full name')} autoComplete="new-password" />
+            </Form.Item>
 
-          <Form.Item
-              name="phone"
-              rules={[
-                {
-                  required: true,
-                  message: t('Phone number require'),
-                },
-              ]}
-          >
-            <Input placeholder={t('Phone number')} autoComplete="new-password" />
-          </Form.Item>
+            <Form.Item
+                name="phone"
+                rules={[
+                  {
+                    required: true,
+                    message: t('Phone number require'),
+                  },
+                ]}
+            >
+              <Input placeholder={t('Phone number')} autoComplete="new-password" />
+            </Form.Item>
 
-          <Form.Item
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  message: t('Email require'),
-                },
-                {
-                  pattern: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
-                  message: t('Email address is not valid'),
-                },
-              ]}
-          >
-            <Input placeholder={'Email address'} autoComplete="new-password" />
-          </Form.Item>
+            <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: t('Email require'),
+                  },
+                  {
+                    pattern: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
+                    message: t('Email address is not valid'),
+                  },
+                ]}
+            >
+              <Input placeholder={'Email address'} autoComplete="new-password" />
+            </Form.Item>
 
-          <Form.Item>
-            <StyledButton htmlType="submit" style={{width: '100%'}}>
-              {t('Send')}
-            </StyledButton>
-          </Form.Item>
-        </Form>
+            <Form.Item>
+              <StyledButton htmlType="submit" style={{width: '100%'}}>
+                {t('Send')}
+              </StyledButton>
+            </Form.Item>
+          </Form>
+        </Content>
       </Container>
   )
 }

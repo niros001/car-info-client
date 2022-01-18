@@ -1,13 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import {TwitterOutlined, FacebookOutlined, LinkedinOutlined} from '@ant-design/icons';
+import {Responsive} from './common';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   background: white;
-  padding: 30px 12px;
+  padding: 30px 0
+`
+
+const Content = styled(Responsive)`
+  align-items: center;
+  width: 100%;
 `
 
 const ServicesContainer = styled.div`
@@ -37,26 +43,28 @@ const Row = styled.div`
 
 const Footer = ({t}) => (
     <Container>
-      <img src={require('../assets/logo.png')} alt="logo" height={30} />
-      <ServicesContainer>
-        <ServicesColumn>
-          <Service>{t('The commandments')}</Service>
-          <Service>{t('Report of stolen vehicle')}</Service>
-          <Service>{t('Report of a car seller')}</Service>
-          <Service>{t('Accessibility')}</Service>
-        </ServicesColumn>
-        <ServicesColumn>
-          <Service>{t('To cancel an order')}</Service>
-          <Service>{t('Terms')}</Service>
-          <Service>{t('Privacy Policy')}</Service>
-          <Service>{t('Contact us')}</Service>
-        </ServicesColumn>
-      </ServicesContainer>
-      <Row>
-        <TwitterOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
-        <FacebookOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
-        <LinkedinOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
-      </Row>
+      <Content>
+        <img src={require('../assets/logo.png')} alt="logo" height={45} />
+        <ServicesContainer>
+          <ServicesColumn>
+            <Service>{t('The commandments')}</Service>
+            <Service>{t('Report of stolen vehicle')}</Service>
+            <Service>{t('Report of a car seller')}</Service>
+            <Service>{t('Accessibility')}</Service>
+          </ServicesColumn>
+          <ServicesColumn>
+            <Service>{t('To cancel an order')}</Service>
+            <Service>{t('Terms')}</Service>
+            <Service>{t('Privacy Policy')}</Service>
+            <Service>{t('Contact us')}</Service>
+          </ServicesColumn>
+        </ServicesContainer>
+        <Row>
+          <TwitterOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
+          <FacebookOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
+          <LinkedinOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
+        </Row>
+      </Content>
     </Container>
 )
 

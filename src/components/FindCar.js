@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Input} from 'antd';
 import {ReportIncludes} from './index';
+import {Responsive} from './common';
 
 const PRICE = 149;
 
@@ -9,9 +10,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   background: linear-gradient(0deg, rgba(22,0,144,1) 0%, rgba(79,0,152,1) 100%);
-  padding: 16px 12px;
+`
+
+const Content = styled(Responsive)`
+  justify-content: space-between;
 `
 
 const Title = styled.div`
@@ -50,22 +53,24 @@ const FindCar = ({t, getReport}) => {
   const [value, setValue] = useState();
   return (
       <Container>
-        <>
-          <Title>{t('Buy car')}</Title>
-          <Subtitle>{t('Check car report')}</Subtitle>
-          <img src={require('../assets/car.png')} alt="car" width={200} />
-          <InputWrapper>
-            <Input
-                maxLength={8}
-                value={value}
-                onChange={({target: {value}}) => setValue(value)}
-                style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 150}}
-            />
-            <CheckButton onClick={getReport}>{t('Check')}</CheckButton>
-          </InputWrapper>
-        </>
-        <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
-        <ReportIncludes t={t} />
+        <Content>
+          <>
+            <Title>{t('Buy car')}</Title>
+            <Subtitle>{t('Check car report')}</Subtitle>
+            <img src={require('../assets/car.png')} alt="car" width={200} />
+            <InputWrapper>
+              <Input
+                  maxLength={8}
+                  value={value}
+                  onChange={({target: {value}}) => setValue(value)}
+                  style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 150}}
+              />
+              <CheckButton onClick={getReport}>{t('Check')}</CheckButton>
+            </InputWrapper>
+          </>
+          <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
+          <ReportIncludes t={t} />
+        </Content>
       </Container>
   )
 }

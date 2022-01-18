@@ -1,12 +1,16 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import {ArrowRightOutlined} from '@ant-design/icons';
+import {Responsive} from './common';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
+`
+
+const Content = styled(Responsive)`
+  align-items: center;
+  width: 100%;
 `
 
 const Button = styled.div`
@@ -25,15 +29,12 @@ const UnderlineText = styled.div`
   border-bottom: 1px solid #FED294;
 `
 
-const ReportViewer = ({t}) => {
-
-  return (
-      <Container>
-        <Button>{t('Enter a vehicle number - btn')}</Button>
-        <img src={require('../assets/phone.png')} alt="phone" width={250}/>
-        <UnderlineText>{t('How report looks')}?</UnderlineText>
-      </Container>
-  );
-}
+const ReportViewer = ({t}) => <Container>
+  <Content>
+    <Button>{t('Enter a vehicle number - btn')}</Button>
+    <img src={require('../assets/phone.png')} alt="phone" width={250}/>
+    <UnderlineText>{t('How report looks')}?</UnderlineText>
+  </Content>
+</Container>
 
 export default ReportViewer;
