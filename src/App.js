@@ -27,7 +27,7 @@ const App = ({changeLanguage, getReport, report}) => {
       <Container>
         <Header openDrawer={() => setVisible(true)} />
         <Content>
-          <FindCar t={t} getReport={getReport} report={report} />
+          <FindCar getReport={getReport} report={report} />
           <AdditionalInfo t={t} />
           <Refund t={t} />
           <ReportViewer t={t} />

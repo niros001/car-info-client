@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Button, Input, Modal} from 'antd';
+import {useTranslation} from 'react-i18next';
 import {ReportIncludes} from './index';
 import {Responsive} from './common';
 import {LoadingOutlined} from '@ant-design/icons';
@@ -43,7 +44,8 @@ const SalePrice = styled.div`
 
 const CheckButton = styled(Button)`
   position: absolute;
-  left: -20px;
+  left: ${({dir}) => dir === 'rtl' && '-20px'};
+  right: ${({dir}) => dir === 'ltr' && '-20px'};
   color: white !important;
   background: linear-gradient(270deg, #4A16A5 0%, #E451C1 50%) !important;
   border: none !important;
@@ -66,7 +68,8 @@ const Error = styled.div`
   color: #C3182B;
 `
 
-const FindCar = ({t, getReport, report}) => {
+const FindCar = ({getReport, report}) => {
+  const {t, i18n} = useTranslation();
   const [value, setValue] = useState();
   const [visible, setVisible] = useState(false);
 
@@ -87,7 +90,7 @@ const FindCar = ({t, getReport, report}) => {
                       onChange={({target: {value}}) => setValue(value)}
                       style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 200}}
                   />
-                  <CheckButton disabled={report.loading} onClick={() => getReport(value)}>{t('Check')}</CheckButton>
+                  <CheckButton dir={i18n.dir()} disabled={report.loading} onClick={() => getReport(value)}>{t('Check')}</CheckButton>
                 </InputWrapper>
             )}
             {report.error && <Error>{report?.error?.message}</Error>}
@@ -95,7 +98,7 @@ const FindCar = ({t, getReport, report}) => {
                 <ShowButton onClick={() => setVisible(true)}>{t('Show report')}</ShowButton>
             )}
             <Modal visible={visible} closable={false} footer={null} onCancel={() => setVisible(false)}>
-              <iframe title="CHECK-CAR REPORT" width="100%" height="500px" src={report.data?.reportUrl} />
+              <iframe title="CHECK-CAR REPORT" width="100%" height="100%" style={{height: '70vh'}} src={report.data?.reportUrl} />
             </Modal>
           </>
           <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
