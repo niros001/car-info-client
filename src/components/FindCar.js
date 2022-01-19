@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Button, Input, Modal} from 'antd';
+import {Button, Input} from 'antd';
 import {useTranslation} from 'react-i18next';
 import {ReportIncludes} from './index';
 import {Responsive} from './common';
@@ -71,7 +71,6 @@ const Error = styled.div`
 const FindCar = ({getReport, report}) => {
   const {t, i18n} = useTranslation();
   const [value, setValue] = useState();
-  const [visible, setVisible] = useState(false);
 
   return (
       <Container>
@@ -95,11 +94,8 @@ const FindCar = ({getReport, report}) => {
             )}
             {report.error && <Error>{report?.error?.message}</Error>}
             {report.data?.success && (
-                <ShowButton onClick={() => setVisible(true)}>{t('Show report')}</ShowButton>
+                <ShowButton target="_blank" href={report.data?.reportUrl}>{t('Show report')}</ShowButton>
             )}
-            <Modal visible={visible} closable={false} footer={null} onCancel={() => setVisible(false)}>
-              <iframe title="CHECK-CAR REPORT" width="100%" height="100%" style={{height: '70vh'}} src={report.data?.reportUrl} />
-            </Modal>
           </>
           <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
           <ReportIncludes t={t} />
