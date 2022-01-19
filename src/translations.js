@@ -65,6 +65,7 @@ const translations = {
       "Reset password - Alert description": "A request to reset your password has been sent to your email address. Please check your inbox to continue the process.",
       "Phone number": "Phone number",
       "Phone number require": "Please input your phone number!",
+      "Show report": "Show report",
     }
   },
   he: {
@@ -132,6 +133,7 @@ const translations = {
       "Reset password - Alert description": "בקשה לאיפוס הסיסמה שלך נשלחה לכתובת האימייל שלך. אנא בדוק את תיבת הדואר הנכנס שלך כדי להמשיך בתהליך.",
       "Phone number": "מספר טלפון",
       "Phone number require": "אנא הזן את מספר הטלפון שלך!",
+      "Show report": "הצג דו״ח"
     }
   },
   fr: {

@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Input} from 'antd';
+import {Button, Input, Modal} from 'antd';
 import {ReportIncludes} from './index';
 import {Responsive} from './common';
+import {LoadingOutlined} from '@ant-design/icons';
 
 const PRICE = 149;
 
@@ -40,18 +41,36 @@ const SalePrice = styled.div`
   margin: 20px 0;
 `
 
-const CheckButton = styled.div`
+const CheckButton = styled(Button)`
   position: absolute;
   left: -20px;
-  color: white;
-  background: linear-gradient(270deg, #4A16A5 0%, #E451C1 50%);
+  color: white !important;
+  background: linear-gradient(270deg, #4A16A5 0%, #E451C1 50%) !important;
+  border: none !important;
   border-radius: 25px;
   padding: 6px 18px;
   cursor: pointer;
 `
 
-const FindCar = ({t, getReport}) => {
+const ShowButton = styled(Button)`
+  background: linear-gradient(270deg, #4A16A5 0%, #E451C1 50%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 25px;
+  padding: 6px 18px;
+  cursor: pointer;
+  margin: 12px;
+`
+
+const Error = styled.div`
+  color: #C3182B;
+`
+
+const FindCar = ({t, getReport, report}) => {
   const [value, setValue] = useState();
+  const [visible, setVisible] = useState(false);
+
+  console.log({report});
   return (
       <Container>
         <Content>
@@ -59,15 +78,26 @@ const FindCar = ({t, getReport}) => {
             <Title>{t('Buy car')}</Title>
             <Subtitle>{t('Check car report')}</Subtitle>
             <img src={require('../assets/car.png')} alt="car" width={200} />
-            <InputWrapper>
-              <Input
-                  maxLength={8}
-                  value={value}
-                  onChange={({target: {value}}) => setValue(value)}
-                  style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 200}}
-              />
-              <CheckButton onClick={getReport}>{t('Check')}</CheckButton>
-            </InputWrapper>
+
+            {report.loading && <LoadingOutlined />}
+            {!report.loading && (
+                <InputWrapper>
+                  <Input
+                      maxLength={8}
+                      value={value}
+                      onChange={({target: {value}}) => setValue(value)}
+                      style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 200}}
+                  />
+                  <CheckButton disabled={report.loading} onClick={() => getReport(value)}>{t('Check')}</CheckButton>
+                </InputWrapper>
+            )}
+            {report.error && <Error>{report?.error?.message}</Error>}
+            {report.data?.success && (
+                <ShowButton onClick={() => setVisible(true)}>{t('Show report')}</ShowButton>
+            )}
+            <Modal visible={visible} closable={false} footer={null} onCancel={() => setVisible(false)}>
+              <iframe title="CHECK-CAR REPORT" width="100%" height="500px" src={report.data?.reportUrl} />
+            </Modal>
           </>
           <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
           <ReportIncludes t={t} />

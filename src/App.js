@@ -19,7 +19,7 @@ const Content = styled.div`
   margin-top: 50px;
 `
 
-const App = ({changeLanguage, getReport}) => {
+const App = ({changeLanguage, getReport, report}) => {
   const {t} = useTranslation();
   const [visible, setVisible] = useState(false);
 
@@ -27,7 +27,7 @@ const App = ({changeLanguage, getReport}) => {
       <Container>
         <Header openDrawer={() => setVisible(true)} />
         <Content>
-          <FindCar t={t} getReport={getReport} />
+          <FindCar t={t} getReport={getReport} report={report} />
           <AdditionalInfo t={t} />
           <Refund t={t} />
           <ReportViewer t={t} />
