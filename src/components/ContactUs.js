@@ -97,7 +97,7 @@ const ContactUs = ({t}) => {
                   },
                 ]}
             >
-              <Input placeholder={'Email address'} autoComplete="new-password" />
+              <Input placeholder={t('Email address')} autoComplete="new-password" />
             </Form.Item>
 
             <Form.Item>

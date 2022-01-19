@@ -70,7 +70,6 @@ const FindCar = ({t, getReport, report}) => {
   const [value, setValue] = useState();
   const [visible, setVisible] = useState(false);
 
-  console.log({report});
   return (
       <Container>
         <Content>
