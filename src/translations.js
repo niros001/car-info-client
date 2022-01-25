@@ -66,6 +66,7 @@ const translations = {
       "Phone number": "Phone number",
       "Phone number require": "Please input your phone number!",
       "Show report": "Show report",
+      "Car number": "Car number",
     }
   },
   he: {
@@ -133,7 +134,8 @@ const translations = {
       "Reset password - Alert description": "בקשה לאיפוס הסיסמה שלך נשלחה לכתובת האימייל שלך. אנא בדוק את תיבת הדואר הנכנס שלך כדי להמשיך בתהליך.",
       "Phone number": "מספר טלפון",
       "Phone number require": "אנא הזן את מספר הטלפון שלך!",
-      "Show report": "הצג דו״ח"
+      "Show report": "הצג דו״ח",
+      "Car number": "מספר רכב",
     }
   },
   fr: {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {Button, Input} from 'antd';
 import {useTranslation} from 'react-i18next';
@@ -68,9 +68,40 @@ const Error = styled.div`
   color: #C3182B;
 `
 
+const LicensePlate = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFC012;
+  color: black;
+  font-weight: bold;
+  font-size: 32px;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  width: 230px;
+  height: 80px;
+`
+
 const FindCar = ({getReport, report}) => {
   const {t, i18n} = useTranslation();
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
+  const [plate, setPlate] = useState('');
+
+  useEffect(() => {
+    if (value.length === 6) {
+      setPlate(`${value.slice(0, 3)}-${value.slice(3, 6)}`);
+    }
+    else if (value.length === 7) {
+      setPlate(`${value.slice(0, 2)}-${value.slice(2, 5)}-${value.slice(5, 7)}`);
+    }
+    else if (value.length === 8) {
+      setPlate(`${value.slice(0, 3)}-${value.slice(3, 5)}-${value.slice(5, 8)}`);
+    }
+    else {
+      setPlate(value);
+    }
+  }, [value]);
 
   return (
       <Container>
@@ -79,7 +110,7 @@ const FindCar = ({getReport, report}) => {
             <Title>{t('Buy car')}</Title>
             <Subtitle>{t('Check car report')}</Subtitle>
             <img src={require('../assets/car.png')} alt="car" width={200} />
-
+            <LicensePlate>{plate}</LicensePlate>
             {report.loading && <LoadingOutlined />}
             {!report.loading && (
                 <InputWrapper>
@@ -87,6 +118,7 @@ const FindCar = ({getReport, report}) => {
                       maxLength={8}
                       value={value}
                       onChange={({target: {value}}) => setValue(value)}
+                      placeholder={t('Car number')}
                       style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 200}}
                   />
                   <CheckButton dir={i18n.dir()} disabled={report.loading} onClick={() => getReport(value)}>{t('Check')}</CheckButton>
