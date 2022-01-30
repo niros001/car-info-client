@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import styled from 'styled-components';
 import {Button, Input} from 'antd';
 import {useTranslation} from 'react-i18next';
@@ -71,6 +71,14 @@ const Error = styled.div`
 const FindCar = ({getReport, report}) => {
   const {t, i18n} = useTranslation();
   const [value, setValue] = useState('');
+  const file = useMemo(() => {
+    if (report.data) {
+      return new Blob([report.data.data], {type: 'application/pdf'})
+    }
+    return null;
+  }, [report.data]);
+
+  const fileURL = useMemo(() => file ? URL.createObjectURL(file) : '', [file]);
 
   return (
       <Container>
@@ -94,7 +102,7 @@ const FindCar = ({getReport, report}) => {
             )}
             {report.error && <Error>{report?.error?.message}</Error>}
             {report.data?.success && (
-                <ShowButton target="_blank" href={report.data?.reportUrl}>{t('Show report')}</ShowButton>
+                <ShowButton target="_blank" onClick={() => window.open(fileURL)}>{t('Show report')}</ShowButton>
             )}
           </>
           <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
