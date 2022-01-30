@@ -67,6 +67,9 @@ const translations = {
       "Phone number require": "Please input your phone number!",
       "Show report": "Show report",
       "Car number": "Car number",
+      "Show reports history": "Show reports history",
+      "Created date": "Created date",
+      "File": "File",
     }
   },
   he: {
@@ -136,6 +139,9 @@ const translations = {
       "Phone number require": "אנא הזן את מספר הטלפון שלך!",
       "Show report": "הצג דו״ח",
       "Car number": "מספר רכב",
+      "Show reports history": "הצג היסטוריית דוחות",
+      "Created date": "תאריך יצירה",
+      "File": "קובץ",
     }
   },
   fr: {

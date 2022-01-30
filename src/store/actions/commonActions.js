@@ -4,3 +4,4 @@ import * as govApi from '../../services/govApi';
 
 export const changeLanguage = makeActionCreator('CHANGE_LANGUAGE');
 export const getReport = makeThunkAsyncActionCreator('GET_REPORT_DATA', govApi.getReport);
+export const getHistoryReports = makeThunkAsyncActionCreator('GET_HISTORY_REPORTS', govApi.getHistoryReports);

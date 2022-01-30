@@ -9,6 +9,7 @@ import WithTranslations from './WithTranslations';
 import store from './store';
 import App from './App';
 import {SetPasswordForm} from './components/Authentication';
+import {ReportsHistory} from './components';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<App />} />
+              <Route path="/reports-history" element={<ReportsHistory />} />
               <Route path="/set-password/:token" element={<SetPasswordForm />} />
             </Routes>
           </BrowserRouter>
