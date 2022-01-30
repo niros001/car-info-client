@@ -73,7 +73,7 @@ const FindCar = ({getReport, report}) => {
   const [value, setValue] = useState('');
   const file = useMemo(() => {
     if (report.data) {
-      return new Blob([report.data.data], {type: 'application/pdf'})
+      return new Blob([new Uint8Array(report.data.buffer.data)], {type: 'application/pdf'})
     }
     return null;
   }, [report.data]);

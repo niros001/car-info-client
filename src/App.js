@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
 import {Header, FindCar, AdditionalInfo, Refund, ContactUs, Footer, DrawerSettings} from './components';
@@ -22,6 +22,10 @@ const Content = styled.div`
 const App = ({changeLanguage, getReport, report}) => {
   const {t} = useTranslation();
   const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    localStorage.removeItem('token');
+  }, [])
 
   return (
       <Container>
