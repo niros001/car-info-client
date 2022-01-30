@@ -56,13 +56,13 @@ const LoginModal = ({user: {loading, data, error}, visible, onCancel, login, sig
     }
   }, [error, t])
 
-  useEffect(() => {
-    if (data) {
-      notification.success({
-        message: t('User logged in'),
-      })
-    }
-  }, [data, t])
+  // useEffect(() => {
+  //   if (data) {
+  //     notification.success({
+  //       message: t('User logged in'),
+  //     })
+  //   }
+  // }, [data, t])
 
   return (
       <Modal

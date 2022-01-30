@@ -3,7 +3,7 @@ import {Route, Routes} from 'react-router-dom';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
 import {connect} from 'react-redux';
-import {commonActions} from './store/actions';
+import {authActions, commonActions} from './store/actions';
 import {Header, Footer, DrawerSettings} from './components';
 import {Home} from './components/Home';
 import {Reports} from './components/Reports';
@@ -22,13 +22,16 @@ const Content = styled.div`
   margin-top: 50px;
 `
 
-const App = ({changeLanguage}) => {
+const App = ({changeLanguage, reLogged}) => {
   const {t} = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    localStorage.removeItem('token');
-  }, [])
+    if (localStorage.getItem('token') && localStorage.getItem('email')) {
+      console.log('@@');
+      reLogged()
+    }
+  }, [reLogged])
 
   return (
       <Container>
@@ -49,4 +52,4 @@ const App = ({changeLanguage}) => {
   );
 }
 
-export default connect(({common: {report}}) => ({report}), commonActions)(App);
+export default connect(({common: {report}}) => ({report}), {...authActions, ...commonActions})(App);

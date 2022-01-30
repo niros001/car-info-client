@@ -12,13 +12,14 @@ const authReducer = {
       }
       case 'LOGIN@ASYNC_SUCCESS':
       case 'SIGNUP@ASYNC_SUCCESS': {
-        const {password, ...user} = action.payload;
-        localStorage.setItem('token', user.token);
+        const {token, email} = action.payload;
+        localStorage.setItem('token', token);
+        localStorage.setItem('email', email);
         return {
           ...state,
           loading: false,
           loaded: true,
-          data: user,
+          data: ({token, email}),
           error: null,
         };
       }
@@ -34,7 +35,19 @@ const authReducer = {
       }
       case 'LOGOUT': {
         localStorage.removeItem('token');
+        localStorage.removeItem('email');
         return initialState;
+      }
+      case 'USER_RE_LOGGED': {
+        const token = localStorage.getItem('token');
+        const email = localStorage.getItem('email');
+        return {
+          ...state,
+          loading: false,
+          loaded: true,
+          data: {token, email},
+          error: null,
+        }
       }
       default:
         return state;
