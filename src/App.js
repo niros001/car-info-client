@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import {Route, Routes} from 'react-router-dom';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
-import {Header, FindCar, AdditionalInfo, Refund, ContactUs, Footer, DrawerSettings} from './components';
 import {connect} from 'react-redux';
 import {commonActions} from './store/actions';
-import ReportViewer from './components/ReportViewer';
+import {Header, Footer, DrawerSettings} from './components';
+import {Home} from './components/Home';
+import {Reports} from './components/Reports';
 
 const Container = styled.div`
   height: 100vh;
@@ -16,10 +18,11 @@ const Container = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
   margin-top: 50px;
 `
 
-const App = ({changeLanguage, getReport, report}) => {
+const App = ({changeLanguage}) => {
   const {t} = useTranslation();
   const [visible, setVisible] = useState(false);
 
@@ -31,13 +34,12 @@ const App = ({changeLanguage, getReport, report}) => {
       <Container>
         <Header openDrawer={() => setVisible(true)} />
         <Content>
-          <FindCar getReport={getReport} report={report} />
-          <AdditionalInfo t={t} />
-          <Refund t={t} />
-          <ReportViewer t={t} />
-          <ContactUs t={t} />
-          <Footer t={t} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/reports-history" element={<Reports />} />
+          </Routes>
         </Content>
+        <Footer t={t} />
         <DrawerSettings
             visible={visible}
             onClose={() => setVisible(false)}

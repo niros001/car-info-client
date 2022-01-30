@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import styled from 'styled-components';
 import {Button, Form, Input} from 'antd';
-import {Responsive} from './common';
+import {Responsive} from '../common';
 
 const Container = styled.div`
   display: flex;

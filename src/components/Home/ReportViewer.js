@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Responsive} from './common';
+import {Responsive} from '../common';
 
 const Container = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const UnderlineText = styled.div`
 const ReportViewer = ({t}) => <Container>
   <Content>
     <Button>{t('Enter a vehicle number - btn')}</Button>
-    <img src={require('../assets/phone.png')} alt="phone" width={250}/>
+    <img src={require('../../assets/phone.png')} alt="phone" width={250}/>
     <UnderlineText>{t('How report looks')}?</UnderlineText>
   </Content>
 </Container>

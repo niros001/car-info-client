@@ -2,8 +2,8 @@ import React, {useMemo, useState} from 'react';
 import styled from 'styled-components';
 import {Button, Input} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {ReportIncludes} from './index';
-import {Responsive} from './common';
+import {ReportIncludes} from './';
+import {Responsive} from '../common';
 import {LoadingOutlined} from '@ant-design/icons';
 
 const PRICE = 149;
@@ -86,7 +86,7 @@ const FindCar = ({getReport, report}) => {
           <>
             <Title>{t('Buy car')}</Title>
             <Subtitle>{t('Check car report')}</Subtitle>
-            <img src={require('../assets/car.png')} alt="car" width={200} />
+            <img src={require('../../assets/car.png')} alt="car" width={200} />
             {report.loading && <LoadingOutlined />}
             {!report.loading && (
                 <InputWrapper>

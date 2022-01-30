@@ -70,6 +70,7 @@ const translations = {
       "Show reports history": "Show reports history",
       "Created date": "Created date",
       "File": "File",
+      "Main page": "Main page",
     }
   },
   he: {
@@ -142,6 +143,7 @@ const translations = {
       "Show reports history": "הצג היסטוריית דוחות",
       "Created date": "תאריך יצירה",
       "File": "קובץ",
+      "Main page": "עמוד ראשי",
     }
   },
   fr: {

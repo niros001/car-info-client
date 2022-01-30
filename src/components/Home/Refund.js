@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Button} from 'antd';
-import {Responsive} from './common';
+import {Responsive} from '../common';
 
 const Container = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ const Refund = ({t}) => (
       <Responsive>
         <Button type="primary" style={{backgroundColor: 'rgb(22, 0, 144)', width: '100%', border: 'none'}}>{t('Satisfied report')}</Button>
         <Title>{t('Full refund')}</Title>
-        <img src={require('../assets/refund.png')} alt="logo" height={250} />
+        <img src={require('../../assets/refund.png')} alt="logo" height={250} />
         <Info>{t('Refund info')}</Info>
       </Responsive>
     </Container>

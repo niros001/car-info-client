@@ -1,12 +1,11 @@
 import React, {useEffect, useMemo} from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import {Table, Button} from 'antd';
 import {FilePdfOutlined} from '@ant-design/icons';
-import {commonActions} from '../store/actions';
+import {commonActions} from '../../store/actions';
 
-const ReportsHistory = ({user, getHistoryReports, historyReports}) => {
+const Reports = ({user, getHistoryReports, historyReports}) => {
   useEffect(() => {
     if (user.data) {
       getHistoryReports()
@@ -32,17 +31,16 @@ const ReportsHistory = ({user, getHistoryReports, historyReports}) => {
       }}>{t('Show report')}</Button>
     },
   ], [t]);
-  return (<div>
-    <Link to="/">{t('BACK')}</Link>
-    <Table
-        rowKey={({_id}) => _id}
-        columns={columns}
-        dataSource={historyReports.data}
-        loading={historyReports.loading}
-        size="small"
-        pagination={false}
-    />
-  </div>)
+  return (
+      <Table
+          rowKey={({_id}) => _id}
+          columns={columns}
+          dataSource={historyReports.data}
+          loading={historyReports.loading}
+          size="small"
+          pagination={false}
+      />
+  )
 }
 
-export default connect(({auth: {user}, common: {historyReports}}) => ({user, historyReports}), commonActions)(ReportsHistory);
+export default connect(({auth: {user}, common: {historyReports}}) => ({user, historyReports}), commonActions)(Reports);
