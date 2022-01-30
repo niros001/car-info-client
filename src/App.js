@@ -18,7 +18,7 @@ const Container = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
   margin-top: 50px;
 `
 
