@@ -28,7 +28,6 @@ const App = ({changeLanguage, reLogged}) => {
 
   useEffect(() => {
     if (localStorage.getItem('token') && localStorage.getItem('email')) {
-      console.log('@@');
       reLogged()
     }
   }, [reLogged])
