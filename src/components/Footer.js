@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import {TwitterOutlined, FacebookOutlined, LinkedinOutlined} from '@ant-design/icons';
 import {Responsive} from './common';
+import logoSvg from '../assets/logo.svg'
+import twitterSvg from '../assets/twitter.svg'
+import facebookSvg from '../assets/facebook.svg'
+import linkedInSvg from '../assets/linkedIn.svg'
 
 const Container = styled.div`
   display: flex;
@@ -31,8 +35,8 @@ const ServicesColumn = styled.div`
 `
 
 const Service = styled.div`
-  font-size: 13px;
-  color: #160090;
+  font-size: 14px;
+  color: #1F2737;
   cursor: pointer;
 `
 
@@ -41,10 +45,17 @@ const Row = styled.div`
   align-items: center;
 `
 
+const Shared = styled.img`
+  width: 28px;
+  height: 28px;
+  margin: 0 12px;
+  cursor: pointer;
+`
+
 const Footer = ({t}) => (
     <Container>
       <Content>
-        <img src={require('../assets/logo.png')} alt="logo" height={45} />
+        <img src={logoSvg} alt="logo" height={30} />
         <ServicesContainer>
           <ServicesColumn>
             <Service>{t('The commandments')}</Service>
@@ -60,9 +71,9 @@ const Footer = ({t}) => (
           </ServicesColumn>
         </ServicesContainer>
         <Row>
-          <TwitterOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
-          <FacebookOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
-          <LinkedinOutlined style={{color: '#160090', fontSize: 30, margin: '0 12px'}} />
+          <Shared src={twitterSvg} alt="twitter" />
+          <Shared src={facebookSvg} alt="facebook" />
+          <Shared src={linkedInSvg} alt="linkedIn" />
         </Row>
       </Content>
     </Container>

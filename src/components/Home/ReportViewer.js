@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Button} from 'antd';
 import {Responsive} from '../common';
+import phoneSvg from '../../assets/phone.svg'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 12px;
 `
 
 const Content = styled(Responsive)`
@@ -13,26 +16,28 @@ const Content = styled(Responsive)`
   width: 100%;
 `
 
-const Button = styled.div`
-  background: linear-gradient(270deg, #4A16A5 0%, #E451C1 50%);
+const StyledButton = styled(Button)`
+  background: linear-gradient(265deg, #1AE5BE 0%, #56EFD2 100%) !important;
+  color: white !important;
   width: 100%;
-  border-radius: 25px;
-  padding: 6px 18px;
+  border: none;
+  border-radius: 47px;
+  height: 45px;
+  font-size: 20px;
   font-weight: bold;
-  text-align: center;
-  cursor: pointer;
 `
 
 const UnderlineText = styled.div`
-  font-size: 16px;
-  color: #4D46B1;
-  border-bottom: 1px solid #FED294;
+  font-size: 15px;
+  font-weight: bold;
+  color: #1F2737;
+  border-bottom: 1px solid #1AE5BE;
 `
 
 const ReportViewer = ({t}) => <Container>
   <Content>
-    <Button>{t('Enter a vehicle number - btn')}</Button>
-    <img src={require('../../assets/phone.png')} alt="phone" width={250}/>
+    <StyledButton>{t('Enter a vehicle number - btn')}</StyledButton>
+    <img src={phoneSvg} alt="phone" height={200} style={{margin: '50px 0'}}/>
     <UnderlineText>{t('How report looks')}?</UnderlineText>
   </Content>
 </Container>

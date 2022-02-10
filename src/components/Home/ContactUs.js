@@ -7,8 +7,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(315deg, rgba(22,0,144,1) 0%, rgba(79,0,152,1) 100%);
-  padding: 30px 0;
+  background: #1F2737;
+  border: 1px solid #707070;
+  padding: 30px 12px;
+  margin: 30px 0;
 `
 
 const Content = styled(Responsive)`
@@ -17,22 +19,28 @@ const Content = styled(Responsive)`
 `
 
 const Title = styled.div`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
 `
 
+const StyledInput = styled(Input)`
+  height: 45px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #1F2737;
+  ::placeholder {
+    color: #1F2737;
+  }
+`
+
 const StyledButton = styled(Button)`
-  background-color: #24E2B1 !important;
-  color: #160090 !important;
+  background-color: #1AE5BE !important;
+  color: #1F2737 !important;
   border: none !important;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 20px 24px;
-  border-radius: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  height: 45px;
+  border-radius: 23px;
 `
 
 const ContactUs = ({t}) => {
@@ -69,7 +77,7 @@ const ContactUs = ({t}) => {
                   },
                 ]}
             >
-              <Input placeholder={t('Full name')} autoComplete="new-password" />
+              <StyledInput placeholder={t('Full name')} autoComplete="new-password" />
             </Form.Item>
 
             <Form.Item
@@ -81,7 +89,7 @@ const ContactUs = ({t}) => {
                   },
                 ]}
             >
-              <Input placeholder={t('Phone number')} autoComplete="new-password" />
+              <StyledInput placeholder={t('Phone number')} autoComplete="new-password" />
             </Form.Item>
 
             <Form.Item
@@ -97,7 +105,7 @@ const ContactUs = ({t}) => {
                   },
                 ]}
             >
-              <Input placeholder={t('Email address')} autoComplete="new-password" />
+              <StyledInput placeholder={t('Email address')} autoComplete="new-password" />
             </Form.Item>
 
             <Form.Item>

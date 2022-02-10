@@ -2,9 +2,9 @@ import React, {useMemo, useState} from 'react';
 import styled from 'styled-components';
 import {Button, Input} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {ReportIncludes} from './';
 import {Responsive} from '../common';
 import {LoadingOutlined} from '@ant-design/icons';
+import carSvg from '../../assets/car.svg';
 
 const PRICE = 149;
 
@@ -12,7 +12,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(0deg, rgba(22,0,144,1) 0%, rgba(79,0,152,1) 100%);
+  padding: 12px;
 `
 
 const Content = styled(Responsive)`
@@ -21,24 +21,38 @@ const Content = styled(Responsive)`
 `
 
 const Title = styled.div`
-  font-size: 32px;
+  font-size: 37px;
   font-weight: bold;
+  color: #1F2737;
 `
 
 const Subtitle = styled.div`
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
+  color: #1F2737;
 `
 
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  
+  input {
+    font-size: 16px;
+    border-radius: 25px;
+    width: 270px;
+    height: 45px;
+    background-color: #F6F6F6;
+    ::placeholder {
+      color: black;
+    }
+  }
 `
 
 const SalePrice = styled.div`
-  font-size: 14px;
-  color: #FECD89;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1F2737;
   margin: 20px 0;
 `
 
@@ -46,8 +60,11 @@ const CheckButton = styled(Button)`
   position: absolute;
   left: ${({dir}) => dir === 'rtl' && '-20px'};
   right: ${({dir}) => dir === 'ltr' && '-20px'};
-  color: white !important;
-  background: linear-gradient(270deg, #4A16A5 0%, #E451C1 50%) !important;
+  height: 45px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1F2737 !important;
+  background: #1AE5BE !important;
   border: none !important;
   border-radius: 25px;
   padding: 6px 18px;
@@ -55,9 +72,11 @@ const CheckButton = styled(Button)`
 `
 
 const ShowButton = styled(Button)`
-  background: linear-gradient(270deg, #4A16A5 0%, #E451C1 50%) !important;
-  color: white !important;
+  background: #1AE5BE !important;
+  color: #1F2737 !important;
   border: none !important;
+  font-size: 16px;
+  font-weight: bold;
   border-radius: 25px;
   padding: 6px 18px;
   cursor: pointer;
@@ -86,8 +105,8 @@ const FindCar = ({getReport, report}) => {
           <>
             <Title>{t('Buy car')}</Title>
             <Subtitle>{t('Check car report')}</Subtitle>
-            <img src={require('../../assets/car.png')} alt="car" width={200} />
-            {report.loading && <LoadingOutlined />}
+            <img src={carSvg} alt="car" width={270} style={{marginBottom: 20}} />
+            {report.loading && <LoadingOutlined style={{color: '#1AE5BE', fontSize: 30}} />}
             {!report.loading && (
                 <InputWrapper>
                   <Input
@@ -95,7 +114,6 @@ const FindCar = ({getReport, report}) => {
                       value={value}
                       onChange={({target: {value}}) => setValue(value)}
                       placeholder={t('Car number')}
-                      style={{fontWeight: 'bold', borderRadius: 25, maxWidth: 200}}
                   />
                   <CheckButton dir={i18n.dir()} disabled={report.loading} onClick={() => getReport(value)}>{t('Check')}</CheckButton>
                 </InputWrapper>
@@ -106,7 +124,6 @@ const FindCar = ({getReport, report}) => {
             )}
           </>
           <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
-          <ReportIncludes t={t} />
         </Content>
       </Container>
   )

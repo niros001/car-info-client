@@ -33,6 +33,7 @@ const DrawerSettings = ({visible, onClose, changeLanguage}) => {
           </p>
           <Divider />
           <Link to="/" onClick={onClose}>{t('Main page')}</Link>
+          <Divider />
           <Link to="/reports-history" onClick={onClose}>{t('Show reports history')}</Link>
           <Divider />
         </Column>
