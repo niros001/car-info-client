@@ -18,18 +18,19 @@ const Content = styled(Responsive)`
 
 const StyledButton = styled(Button)`
   background: linear-gradient(265deg, #1AE5BE 0%, #56EFD2 100%) !important;
-  color: white !important;
+  color: black !important;
   width: 100%;
   border: none;
   border-radius: 47px;
   height: 45px;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: normal !important;
 `
 
 const UnderlineText = styled.div`
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 500;
   color: #1F2737;
   border-bottom: 1px solid #1AE5BE;
 `

@@ -28,7 +28,7 @@ const Title = styled.div`
 
 const Subtitle = styled.div`
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 400;
   color: #1F2737;
 `
 
@@ -39,9 +39,12 @@ const InputWrapper = styled.div`
   
   input {
     font-size: 16px;
+    font-weight: 400;
     border-radius: 25px;
     width: 270px;
     height: 45px;
+    border: none !important;
+    box-shadow: none !important;
     background-color: #F6F6F6;
     ::placeholder {
       color: black;
@@ -62,7 +65,7 @@ const CheckButton = styled(Button)`
   right: ${({dir}) => dir === 'ltr' && '-20px'};
   height: 45px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
   color: #1F2737 !important;
   background: #1AE5BE !important;
   border: none !important;
@@ -105,7 +108,7 @@ const FindCar = ({getReport, report}) => {
           <>
             <Title>{t('Buy car')}</Title>
             <Subtitle>{t('Check car report')}</Subtitle>
-            <img src={carSvg} alt="car" width={270} style={{marginBottom: 20}} />
+            <img src={carSvg} alt="car" width={270} style={{margin: '20px 0'}} />
             {report.loading && <LoadingOutlined style={{color: '#1AE5BE', fontSize: 30}} />}
             {!report.loading && (
                 <InputWrapper>

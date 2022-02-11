@@ -14,8 +14,8 @@ const StyledButton = styled(Button)`
   height: 45px;
   background-color: #1F2737 !important;
   color: white !important;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 500;
   width: 100%;
   border: none;
   border-radius: 5px;
@@ -23,12 +23,14 @@ const StyledButton = styled(Button)`
 
 const Title = styled.div`
   font-size: 20px;
+  font-weight: 400;
   color: #525252;
   margin: 12px 0;
 `
 
 const Info = styled.div`
   font-size: 15px;
+  font-weight: 400;
   color: #525252;
 `;
 

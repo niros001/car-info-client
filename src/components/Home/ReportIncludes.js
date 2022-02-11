@@ -30,10 +30,11 @@ const Icon = styled.img`
 
 const Text = styled.div`
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
   color: #1F2737;
   max-width: 120px;
   text-align: center;
+  margin-top: -15px;
 `
 const ReportIncludes = ({t}) => {
   const includes = useMemo(() => [

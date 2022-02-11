@@ -9,13 +9,14 @@ const Container = styled.div`
 
 const Title = styled.div`
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 500;
   color: #525252;
   margin-bottom: 12px;
 `
 
 const Info = styled.div`
   font-size: 15px;
+  font-weight: 400;
   color: #525252;
 `
 
