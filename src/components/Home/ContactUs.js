@@ -1,16 +1,13 @@
 import React, {useCallback} from 'react';
 import styled from 'styled-components';
 import {Button, Form, Input} from 'antd';
-import {Responsive} from '../common';
+import {Responsive, container} from '../common';
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #1F2737;
+  ${container};
   border: 1px solid #707070;
   padding: 30px 12px;
-  margin: 30px 0;
+  background: #1F2737;
 `
 
 const Content = styled(Responsive)`

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {TwitterOutlined, FacebookOutlined, LinkedinOutlined} from '@ant-design/icons';
 import {Responsive} from './common';
 import logoSvg from '../assets/logo.svg'
 import twitterSvg from '../assets/twitter.svg'
@@ -12,7 +11,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background: white;
-  padding: 30px 0
+  padding: 30px 0;
 `
 
 const Content = styled(Responsive)`

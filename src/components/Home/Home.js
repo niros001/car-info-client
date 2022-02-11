@@ -4,7 +4,6 @@ import {useTranslation} from 'react-i18next';
 import {FindCar, AdditionalInfo, Refund, ContactUs, ReportViewer, ReportIncludes} from './';
 import {connect} from 'react-redux';
 import {commonActions} from '../../store/actions';
-import {Responsive} from '../common';
 
 const Container = styled.div`
   display: flex;
@@ -16,14 +15,12 @@ const Home = ({getReport, report}) => {
   const {t} = useTranslation();
   return (
       <Container>
-        <Responsive>
-          <FindCar getReport={getReport} report={report} />
-          <ReportIncludes t={t} />
-          <AdditionalInfo t={t} />
-          <Refund t={t} />
-          <ReportViewer t={t} />
-          <ContactUs t={t} />
-        </Responsive>
+        <FindCar getReport={getReport} report={report} />
+        <ReportIncludes t={t} />
+        <AdditionalInfo t={t} />
+        <Refund t={t} />
+        <ReportViewer t={t} />
+        <ContactUs t={t} />
       </Container>
   );
 }

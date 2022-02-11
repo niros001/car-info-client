@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Responsive, container} from '../common';
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
+  ${container};
+  background-color: white;
 `
+
+const Content = styled(Responsive)`
+
+`;
 
 const Title = styled.div`
   font-size: 20px;
@@ -22,14 +26,16 @@ const Info = styled.div`
 
 const AdditionalInfo = ({t}) => (
     <Container style={{color: 'black'}}>
-      <Title>{t('What is check car report')}</Title>
-      <Info>{t('What is check car report info')}</Info>
-      <br />
-      <Title>{t('Sounds revolutionary')}</Title>
-      <Info>{t('Sounds revolutionary info')}</Info>
-      <br />
-      <Title>{t('It is legal')}</Title>
-      <Info>{t('It is legal info')}</Info>
+          <Content>
+                <Title>{t('What is check car report')}</Title>
+                <Info>{t('What is check car report info')}</Info>
+                <br />
+                <Title>{t('Sounds revolutionary')}</Title>
+                <Info>{t('Sounds revolutionary info')}</Info>
+                <br />
+                <Title>{t('It is legal')}</Title>
+                <Info>{t('It is legal info')}</Info>
+          </Content>
     </Container>
 )
 

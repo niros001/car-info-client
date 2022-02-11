@@ -2,17 +2,15 @@ import React, {useMemo, useState} from 'react';
 import styled from 'styled-components';
 import {Button, Input} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {Responsive} from '../common';
+import {Responsive, container} from '../common';
 import {LoadingOutlined} from '@ant-design/icons';
 import carSvg from '../../assets/car.svg';
 
 const PRICE = 149;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px;
+  ${container};
+  background-color: white;
 `
 
 const Content = styled(Responsive)`

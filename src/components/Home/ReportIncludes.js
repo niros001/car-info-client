@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 import styled from 'styled-components';
+import {Responsive, container} from '../common';
 import includes01Svg from '../../assets/includes01.svg'
 import includes02Svg from '../../assets/includes02.svg'
 import includes03Svg from '../../assets/includes03.svg'
@@ -8,12 +9,15 @@ import includes05Svg from '../../assets/includes05.svg'
 import includes06Svg from '../../assets/includes06.svg'
 
 const Container = styled.div`
-  display: flex;
+  ${container};
+  background-color: #1AE5BE;
+`
+
+const Content = styled(Responsive)`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 12px;
-  background-color: #1AE5BE;
+  align-items: center;
 `
 
 const Item = styled.div`
@@ -48,12 +52,14 @@ const ReportIncludes = ({t}) => {
 
   return (
       <Container>
-        {includes.map(({src, description}, index) => (
-            <Item key={index}>
-              <Icon src={src} />
-              <Text>{description}</Text>
-            </Item>
-        ))}
+        <Content>
+          {includes.map(({src, description}, index) => (
+              <Item key={index}>
+                <Icon src={src} />
+                <Text>{description}</Text>
+              </Item>
+          ))}
+        </Content>
       </Container>
   );
 }

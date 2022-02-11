@@ -1,19 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Button} from 'antd';
-import {Responsive} from '../common';
+import {Responsive, container} from '../common';
 import phoneSvg from '../../assets/phone.svg'
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px;
+  ${container};
+  background-color: white;
 `
 
 const Content = styled(Responsive)`
   align-items: center;
-  width: 100%;
 `
 
 const StyledButton = styled(Button)`
@@ -35,12 +32,14 @@ const UnderlineText = styled.div`
   border-bottom: 1px solid #1AE5BE;
 `
 
-const ReportViewer = ({t}) => <Container>
-  <Content>
-    <StyledButton>{t('Enter a vehicle number - btn')}</StyledButton>
-    <img src={phoneSvg} alt="phone" height={200} style={{margin: '50px 0'}}/>
-    <UnderlineText>{t('How report looks')}?</UnderlineText>
-  </Content>
-</Container>
+const ReportViewer = ({t}) => (
+    <Container>
+      <Content>
+        <StyledButton>{t('Enter a vehicle number - btn')}</StyledButton>
+        <img src={phoneSvg} alt="phone" height={200} style={{margin: '50px 0'}}/>
+        <UnderlineText>{t('How report looks')}?</UnderlineText>
+      </Content>
+    </Container>
+)
 
 export default ReportViewer;
