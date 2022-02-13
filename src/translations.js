@@ -70,6 +70,8 @@ const translations = {
       "Created date": "Created date",
       "File": "File",
       "Main page": "Main page",
+      "Email sent successfully": "Email sent successfully",
+      "Email sent description": "We have received your inquiry and we will contact you soon"
     }
   },
   he: {
@@ -142,6 +144,8 @@ const translations = {
       "Created date": "תאריך יצירה",
       "File": "קובץ",
       "Main page": "עמוד ראשי",
+      "Email sent successfully": "אימייל נשלח בהצלחה",
+      "Email sent description": "קיבלנו את הפנייה שלך וניצור איתך קשר בהקדם",
     }
   },
   fr: {

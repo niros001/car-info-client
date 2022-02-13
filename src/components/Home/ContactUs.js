@@ -1,7 +1,8 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
-import {Button, Form, Input} from 'antd';
+import {Button, Form, Input, notification, Alert} from 'antd';
 import {Responsive, container} from '../common';
+import {contactUs} from '../../services/commonApi';
 
 const Container = styled.div`
   ${container};
@@ -43,10 +44,24 @@ const StyledButton = styled(Button)`
 
 const ContactUs = ({t}) => {
   const [form] = Form.useForm();
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const onFinish = useCallback((values) => {
-    console.log('Success:', values);
-  }, []);
+    setLoading(true);
+    contactUs(values)
+        .then(() => {
+          setLoading(false);
+          setSuccess(true);
+        })
+        .catch((err) => {
+          setLoading(false);
+          notification.error({
+            message: `${t('Something went wrong')}...`,
+            description: err.message,
+          })
+        })
+  }, [t]);
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
@@ -56,62 +71,71 @@ const ContactUs = ({t}) => {
       <Container>
         <Content>
           <Title>{t('Contact us')}</Title>
-          <Form
-              name="contact-us"
-              layout="vertical"
-              autoComplete="off"
-              style={{width: '100%'}}
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-              form={form}
-          >
-            <input hidden autoComplete="false"/>
-            <Form.Item
-                name="fullName"
-                rules={[
-                  {
-                    required: true,
-                    message: t('Full name require'),
-                  },
-                ]}
-            >
-              <StyledInput placeholder={t('Full name')} autoComplete="new-password" />
-            </Form.Item>
+          {success ? (
+              <Alert
+                  message={t('Email sent successfully')}
+                  description={t('Email sent description')}
+                  type="success"
+                  showIcon
+              />
+          ) : (
+              <Form
+                  name="contact-us"
+                  layout="vertical"
+                  autoComplete="off"
+                  style={{width: '100%'}}
+                  onFinish={onFinish}
+                  onFinishFailed={onFinishFailed}
+                  form={form}
+              >
+                <input hidden autoComplete="false"/>
+                <Form.Item
+                    name="fullName"
+                    rules={[
+                      {
+                        required: true,
+                        message: t('Full name require'),
+                      },
+                    ]}
+                >
+                  <StyledInput placeholder={t('Full name')} autoComplete="new-password" disabled={loading} />
+                </Form.Item>
 
-            <Form.Item
-                name="phone"
-                rules={[
-                  {
-                    required: true,
-                    message: t('Phone number require'),
-                  },
-                ]}
-            >
-              <StyledInput placeholder={t('Phone number')} autoComplete="new-password" />
-            </Form.Item>
+                <Form.Item
+                    name="phoneNumber"
+                    rules={[
+                      {
+                        required: true,
+                        message: t('Phone number require'),
+                      },
+                    ]}
+                >
+                  <StyledInput type="tel" placeholder={t('Phone number')} autoComplete="new-password" disabled={loading} />
+                </Form.Item>
 
-            <Form.Item
-                name="email"
-                rules={[
-                  {
-                    required: true,
-                    message: t('Email require'),
-                  },
-                  {
-                    pattern: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
-                    message: t('Email address is not valid'),
-                  },
-                ]}
-            >
-              <StyledInput placeholder={t('Email address')} autoComplete="new-password" />
-            </Form.Item>
+                <Form.Item
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                        message: t('Email require'),
+                      },
+                      {
+                        pattern: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i,
+                        message: t('Email address is not valid'),
+                      },
+                    ]}
+                >
+                  <StyledInput placeholder={t('Email address')} autoComplete="new-password" disabled={loading} />
+                </Form.Item>
 
-            <Form.Item>
-              <StyledButton htmlType="submit" style={{width: '100%'}}>
-                {t('Send')}
-              </StyledButton>
-            </Form.Item>
-          </Form>
+                <Form.Item>
+                  <StyledButton htmlType="submit" loading={loading} style={{width: '100%'}}>
+                    {t('Send')}
+                  </StyledButton>
+                </Form.Item>
+              </Form>
+          )}
         </Content>
       </Container>
   )
