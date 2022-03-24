@@ -1,12 +1,26 @@
 import React, {useMemo, useState} from 'react';
-import styled from 'styled-components';
-import {Button, Input} from 'antd';
+import styled, {css} from 'styled-components';
+import {Button, Input, DatePicker} from 'antd';
 import {useTranslation} from 'react-i18next';
 import {Responsive, container} from '../common';
 import {LoadingOutlined} from '@ant-design/icons';
 import carSvg from '../../assets/car.svg';
 
 const PRICE = 149;
+
+const input = css`
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 25px;
+  width: 270px;
+  height: 45px;
+  border: none !important;
+  box-shadow: none !important;
+  background-color: #F6F6F6;
+  ::placeholder {
+    color: black;
+  }
+`;
 
 const Container = styled.div`
   ${container};
@@ -36,19 +50,19 @@ const InputWrapper = styled.div`
   position: relative;
   
   input {
-    font-size: 16px;
-    font-weight: 400;
-    border-radius: 25px;
-    width: 270px;
-    height: 45px;
-    border: none !important;
-    box-shadow: none !important;
-    background-color: #F6F6F6;
-    ::placeholder {
-      color: black;
-    }
+    ${input}
   }
 `
+
+const StyledInput = styled(Input)`
+  ${input};
+   width: 350px;
+`;
+
+const StyledDatePicker = styled(DatePicker)`
+  ${input};
+  width: 350px;
+`;
 
 const SalePrice = styled.div`
   font-size: 16px;
@@ -90,7 +104,9 @@ const Error = styled.div`
 
 const FindCar = ({getReport, report}) => {
   const {t, i18n} = useTranslation();
-  const [value, setValue] = useState('');
+  const [carNumber, seCarNumber] = useState('');
+  const [ownerId, setOwnerId] = useState('');
+  const [ownerDate, seOwnerDate] = useState('');
   const file = useMemo(() => {
     if (report.data) {
       return new Blob([new Uint8Array(report.data.buffer.data)], {type: 'application/pdf'})
@@ -109,15 +125,29 @@ const FindCar = ({getReport, report}) => {
             <img src={carSvg} alt="car" width={270} style={{margin: '20px 0'}} />
             {report.loading && <LoadingOutlined style={{color: '#1AE5BE', fontSize: 30}} />}
             {!report.loading && (
-                <InputWrapper>
-                  <Input
-                      maxLength={8}
-                      value={value}
-                      onChange={({target: {value}}) => setValue(value)}
-                      placeholder={t('Car number')}
+                <>
+                  <StyledInput
+                      value={ownerId}
+                      onChange={({target: {value}}) => setOwnerId(value)}
+                      placeholder={t('Owner ID')}
                   />
-                  <CheckButton dir={i18n.dir()} disabled={report.loading} onClick={() => getReport(value)}>{t('Check')}</CheckButton>
-                </InputWrapper>
+                  <br />
+                  <StyledDatePicker
+                      inputReadOnly
+                      placeholder={t('Owner date')}
+                      onChange={(date, dateString) => seOwnerDate(dateString.split('-').reverse().join(''))}
+                  />
+                  <br />
+                  <InputWrapper>
+                    <Input
+                        maxLength={8}
+                        value={carNumber}
+                        onChange={({target: {value}}) => seCarNumber(value)}
+                        placeholder={t('Car number')}
+                    />
+                    <CheckButton dir={i18n.dir()} disabled={report.loading} onClick={() => getReport(carNumber, ownerId, ownerDate)}>{t('Check')}</CheckButton>
+                  </InputWrapper>
+                </>
             )}
             {report.error && <Error>{report?.error?.message}</Error>}
             {report.data?.success && (

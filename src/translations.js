@@ -71,7 +71,9 @@ const translations = {
       "File": "File",
       "Main page": "Main page",
       "Email sent successfully": "Email sent successfully",
-      "Email sent description": "We have received your inquiry and we will contact you soon"
+      "Email sent description": "We have received your inquiry and we will contact you soon",
+      "Owner ID": "ID number of the main vehicle owner",
+      "Owner date": "Date of commencement of ownership of the vehicle (according to the vehicle license)",
     }
   },
   he: {
@@ -146,6 +148,8 @@ const translations = {
       "Main page": "עמוד ראשי",
       "Email sent successfully": "אימייל נשלח בהצלחה",
       "Email sent description": "קיבלנו את הפנייה שלך וניצור איתך קשר בהקדם",
+      "Owner ID": "מספר תעודת הזהות של בעל הרכב הראשי",
+      "Owner date": "תאריך תחילת הבעלות על הרכב (לפי רשיון הרכב)",
     }
   },
   fr: {
