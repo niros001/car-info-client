@@ -1,6 +1,6 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import styled, {css} from 'styled-components';
-import {Button, Input, DatePicker} from 'antd';
+import {Button, Input, DatePicker, Alert} from 'antd';
 import {useTranslation} from 'react-i18next';
 import {Responsive, container} from '../common';
 import {LoadingOutlined} from '@ant-design/icons';
@@ -86,17 +86,17 @@ const CheckButton = styled(Button)`
   cursor: pointer;
 `
 
-const ShowButton = styled(Button)`
-  background: #1AE5BE !important;
-  color: #1F2737 !important;
-  border: none !important;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 25px;
-  padding: 6px 18px;
-  cursor: pointer;
-  margin: 12px;
-`
+// const ShowButton = styled(Button)`
+//   background: #1AE5BE !important;
+//   color: #1F2737 !important;
+//   border: none !important;
+//   font-size: 16px;
+//   font-weight: bold;
+//   border-radius: 25px;
+//   padding: 6px 18px;
+//   cursor: pointer;
+//   margin: 12px;
+// `
 
 const Error = styled.div`
   color: #C3182B;
@@ -107,14 +107,21 @@ const FindCar = ({getReport, report}) => {
   const [carNumber, seCarNumber] = useState('');
   const [ownerId, setOwnerId] = useState('');
   const [ownerDate, seOwnerDate] = useState('');
-  const file = useMemo(() => {
-    if (report.data) {
-      return new Blob([new Uint8Array(report.data.buffer.data)], {type: 'application/pdf'})
-    }
-    return null;
-  }, [report.data]);
+  const [showAlert, setShowAlert] = useState(false);
 
-  const fileURL = useMemo(() => file ? URL.createObjectURL(file) : '', [file]);
+  useEffect(() => {
+    if (report.data?.success) {
+      setShowAlert(true);
+    }
+  }, [report.data])
+  // const file = useMemo(() => {
+  //   if (report.data) {
+  //     return new Blob([new Uint8Array(report.data.buffer.data)], {type: 'application/pdf'})
+  //   }
+  //   return null;
+  // }, [report.data]);
+
+  // const fileURL = useMemo(() => file ? URL.createObjectURL(file) : '', [file]);
 
   return (
       <Container>
@@ -124,7 +131,7 @@ const FindCar = ({getReport, report}) => {
             <Subtitle>{t('Check car report')}</Subtitle>
             <img src={carSvg} alt="car" width={270} style={{margin: '20px 0'}} />
             {report.loading && <LoadingOutlined style={{color: '#1AE5BE', fontSize: 30}} />}
-            {!report.loading && (
+            {(!report.loading && !showAlert) && (
                 <>
                   <StyledInput
                       value={ownerId}
@@ -150,8 +157,17 @@ const FindCar = ({getReport, report}) => {
                 </>
             )}
             {report.error && <Error>{report?.error?.message}</Error>}
-            {report.data?.success && (
-                <ShowButton target="_blank" onClick={() => window.open(fileURL)}>{t('Show report')}</ShowButton>
+            {showAlert && (
+                <Alert
+                    message={t('Report preparation alert')}
+                    type="success"
+                    showIcon
+                    action={
+                      <Button size="small" type="link" onClick={() => setShowAlert(false)}>
+                        {t('Search another car')}
+                      </Button>
+                    }
+                />
             )}
           </>
           <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
