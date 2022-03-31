@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import styled, {css} from 'styled-components';
 import {Button, Input, DatePicker, Alert} from 'antd';
 import {useTranslation} from 'react-i18next';
@@ -86,18 +86,6 @@ const CheckButton = styled(Button)`
   cursor: pointer;
 `
 
-// const ShowButton = styled(Button)`
-//   background: #1AE5BE !important;
-//   color: #1F2737 !important;
-//   border: none !important;
-//   font-size: 16px;
-//   font-weight: bold;
-//   border-radius: 25px;
-//   padding: 6px 18px;
-//   cursor: pointer;
-//   margin: 12px;
-// `
-
 const Error = styled.div`
   color: #C3182B;
 `
@@ -109,19 +97,14 @@ const FindCar = ({getReport, report}) => {
   const [ownerDate, seOwnerDate] = useState('');
   const [showAlert, setShowAlert] = useState(false);
 
-  useEffect(() => {
-    if (report.data?.success) {
-      setShowAlert(true);
-    }
-  }, [report.data])
-  // const file = useMemo(() => {
-  //   if (report.data) {
-  //     return new Blob([new Uint8Array(report.data.buffer.data)], {type: 'application/pdf'})
-  //   }
-  //   return null;
-  // }, [report.data]);
-
-  // const fileURL = useMemo(() => file ? URL.createObjectURL(file) : '', [file]);
+  const handleReport = useCallback(() => {
+    getReport(carNumber, ownerId, ownerDate)
+        .then(({success}) => {
+          if (success) {
+            setShowAlert(true);
+          }
+        })
+  }, [getReport, carNumber, ownerId, ownerDate]);
 
   return (
       <Container>
@@ -152,7 +135,7 @@ const FindCar = ({getReport, report}) => {
                         onChange={({target: {value}}) => seCarNumber(value)}
                         placeholder={t('Car number')}
                     />
-                    <CheckButton dir={i18n.dir()} disabled={report.loading} onClick={() => getReport(carNumber, ownerId, ownerDate)}>{t('Check')}</CheckButton>
+                    <CheckButton dir={i18n.dir()} disabled={report.loading} onClick={handleReport}>{t('Check')}</CheckButton>
                   </InputWrapper>
                 </>
             )}
