@@ -1,11 +1,12 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Divider, Drawer} from 'antd';
+import {Divider, Drawer, Button} from 'antd';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {User} from './Authentication';
 import us_flag from '../assets/flags-4x3/us.svg';
 import il_flag from '../assets/flags-4x3/il.svg';
+import {testBot} from '../services/govApi';
 
 const Column = styled.div`
   display: flex;
@@ -35,6 +36,8 @@ const DrawerSettings = ({visible, onClose, changeLanguage}) => {
           <Link to="/" onClick={onClose}>{t('Main page')}</Link>
           <Divider />
           <Link to="/reports-history" onClick={onClose}>{t('Show reports history')}</Link>
+          <Divider />
+          <Button onClick={testBot}>Test Bot</Button>
           <Divider />
         </Column>
       </Drawer>
