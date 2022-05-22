@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Responsive} from './common';
-import logoSvg from '../assets/logo.svg'
 import twitterSvg from '../assets/twitter.svg'
 import facebookSvg from '../assets/facebook.svg'
 import linkedInSvg from '../assets/linkedIn.svg'
@@ -14,18 +12,36 @@ const Container = styled.div`
   padding: 30px 0;
 `
 
-const Content = styled(Responsive)`
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
 `
 
 const ServicesContainer = styled.div`
-  display: flex;
   width: 100%;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   margin: 30px;
+  @media(max-width: 540px) {
+    justify-content: space-around;
+  }
+  &.desktop {
+    display: flex;
+  }
+  &.mobile {
+    display: none;
+  }
+  @media(max-width: 540px) {
+    &.mobile {
+      display: flex;
+    }
+    &.desktop {
+      display: none;
+    }
+  }
 `
 
 const ServicesColumn = styled.div`
@@ -37,6 +53,7 @@ const Service = styled.div`
   font-size: 14px;
   font-weight: 400;
   color: #1F2737;
+  margin: 0 12px;
   cursor: pointer;
 `
 
@@ -55,8 +72,17 @@ const Shared = styled.img`
 const Footer = ({t}) => (
     <Container>
       <Content>
-        <img src={logoSvg} alt="logo" height={30} />
-        <ServicesContainer>
+        <ServicesContainer className="desktop">
+          <Service>{t('The commandments')}</Service>
+          <Service>{t('Report of stolen vehicle')}</Service>
+          <Service>{t('Report of a car seller')}</Service>
+          <Service>{t('Accessibility')}</Service>
+          <Service>{t('To cancel an order')}</Service>
+          <Service>{t('Terms')}</Service>
+          <Service>{t('Privacy Policy')}</Service>
+          <Service>{t('Contact us')}</Service>
+        </ServicesContainer>
+        <ServicesContainer className="mobile">
           <ServicesColumn>
             <Service>{t('The commandments')}</Service>
             <Service>{t('Report of stolen vehicle')}</Service>
