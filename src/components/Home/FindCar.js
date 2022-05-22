@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import styled, {css} from 'styled-components';
 import {Button, Input, DatePicker, Alert} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {Responsive, container} from '../common';
+import {container} from '../common';
 import {LoadingOutlined} from '@ant-design/icons';
 import carSvg from '../../assets/car.svg';
 
@@ -27,28 +27,63 @@ const Container = styled.div`
   background-color: white;
 `
 
-const Content = styled(Responsive)`
-  align-items: center;
+const Content = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  @media(max-width: 540px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  white-space: nowrap;
+  @media(max-width: 540px) {
+    align-items: center;
+  }
 `
 
 const Title = styled.div`
-  font-size: 37px;
+  font-size: 33px;
   font-weight: bold;
   color: #1F2737;
 `
 
 const Subtitle = styled.div`
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 23px;
+  font-weight: 500;
   color: #1F2737;
+`
+
+const Img = styled.img`
+  margin: 20px 0;
+  width: 100%;
+  &.desktop {
+    display: unset;
+  }
+  &.mobile {
+    display: none;
+  }
+  @media(max-width: 540px) {
+    &.mobile {
+      display: unset;
+    }
+    &.desktop {
+      display: none;
+    }
+  }
 `
 
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  
+  max-width: fit-content;
   input {
     ${input}
   }
@@ -65,8 +100,8 @@ const StyledDatePicker = styled(DatePicker)`
 `;
 
 const SalePrice = styled.div`
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 21px;
+  font-weight: 500;
   color: #1F2737;
   margin: 20px 0;
 `
@@ -109,25 +144,28 @@ const FindCar = ({getReport, report}) => {
   return (
       <Container>
         <Content>
-          <>
+          <Column>
             <Title>{t('Buy car')}</Title>
             <Subtitle>{t('Check car report')}</Subtitle>
-            <img src={carSvg} alt="car" width={270} style={{margin: '20px 0'}} />
+            <Img className="mobile" src={carSvg} alt="car" />
+            <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
             {report.loading && <LoadingOutlined style={{color: '#1AE5BE', fontSize: 30}} />}
             {(!report.loading && !showAlert) && (
                 <>
-                  <StyledInput
-                      value={ownerId}
-                      onChange={({target: {value}}) => setOwnerId(value)}
-                      placeholder={t('Owner ID')}
-                  />
-                  <br />
-                  <StyledDatePicker
-                      inputReadOnly
-                      placeholder={t('Owner date')}
-                      onChange={(date, dateString) => seOwnerDate(dateString.split('-').reverse().join(''))}
-                  />
-                  <br />
+                  {/*<StyledInput*/}
+                  {/*    disabled*/}
+                  {/*    value={ownerId}*/}
+                  {/*    onChange={({target: {value}}) => setOwnerId(value)}*/}
+                  {/*    placeholder={t('Owner ID')}*/}
+                  {/*/>*/}
+                  {/*<br />*/}
+                  {/*<StyledDatePicker*/}
+                  {/*    disabled*/}
+                  {/*    inputReadOnly*/}
+                  {/*    placeholder={t('Owner date')}*/}
+                  {/*    onChange={(date, dateString) => seOwnerDate(dateString.split('-').reverse().join(''))}*/}
+                  {/*/>*/}
+                  {/*<br />*/}
                   <InputWrapper>
                     <Input
                         maxLength={8}
@@ -152,8 +190,8 @@ const FindCar = ({getReport, report}) => {
                     }
                 />
             )}
-          </>
-          <SalePrice>{t('Sale price')}{PRICE}₪</SalePrice>
+          </Column>
+          <Img className="desktop" src={carSvg} alt="car" />
         </Content>
       </Container>
   )
