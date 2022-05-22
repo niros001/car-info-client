@@ -76,6 +76,8 @@ const translations = {
       "Owner date": "Date of commencement of ownership of the vehicle (according to the vehicle license)",
       "Report preparation alert": "Thanks, your report is in preparation and may take several minutes. When done, you can view it on your reports page.",
       "Search another car": "Search another car",
+      "Report demo": "Report demo",
+      "Order report": "Order report",
     }
   },
   he: {
@@ -154,6 +156,8 @@ const translations = {
       "Owner date": "תאריך תחילת הבעלות על הרכב (לפי רשיון הרכב)",
       "Report preparation alert": "תודה, הדו״ח שלך בתהליך הכנה ויכול לקחת מספר דקות. בסיום תוכל לצפות בו בעמוד הדוחות שלך.",
       "Search another car": "חפש רכב נוסף",
+      "Report demo": "איך נראה הדוח",
+      "Order report": "הזמינו דוח",
     }
   },
   fr: {

@@ -1,7 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {MenuOutlined} from '@ant-design/icons';
 import logoSvg from '../assets/logo.svg'
+
+const button = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 90px;
+  height: 30px;
+  margin: 0 5px;
+  font-size: 12px;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -19,9 +31,31 @@ const Container = styled.div`
   padding: 10px 20px;
 `
 
-const Header = ({openDrawer}) => (
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const Button1 = styled.div`
+  ${button};
+  background-color: #FFFFFF;
+  color: #1F2737;
+  border: 1px solid #1F2737;
+`;
+
+const Button2 = styled.div`
+  ${button};
+  background-color: #555FDE;
+  color: #FFFFFF;
+`;
+
+const Header = ({t, openDrawer}) => (
     <Container>
-      <MenuOutlined onClick={openDrawer} style={{color: 'black'}} />
+      <Row>
+        <MenuOutlined onClick={openDrawer} style={{color: 'black'}} />
+        <Button1>{t('Report demo')}</Button1>
+        <Button2>{t('Order report')}</Button2>
+      </Row>
       <img src={logoSvg} alt="logo" height={30} />
     </Container>
 )

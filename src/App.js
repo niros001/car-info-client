@@ -34,7 +34,7 @@ const App = ({changeLanguage, reLogged}) => {
 
   return (
       <Container>
-        <Header openDrawer={() => setVisible(true)} />
+        <Header t={t} openDrawer={() => setVisible(true)} />
         <Content>
           <Routes>
             <Route path="/" element={<Home />} />
