@@ -19,6 +19,33 @@ const Content = styled(Responsive)`
 const Title = styled.div`
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 22px;
+`
+
+const StyledForm = styled(Form)`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  input {
+    border-radius: 75px;
+    width: 300px;
+  }
+  .ant-form-item-control-input-content {
+    margin: 0 16px;
+  }
+  @media(max-width: 540px) {
+    display: unset;
+    align-items: unset;
+    justify-content: unset;
+    input {
+      border-radius: unset;
+      width: 100%;
+    }
+    .ant-form-item-control-input-content {
+      margin: unset;
+    }
+  }
 `
 
 const StyledInput = styled(Input)`
@@ -33,12 +60,13 @@ const StyledInput = styled(Input)`
 `
 
 const StyledButton = styled(Button)`
-  background-color: #1AE5BE !important;
-  color: #1F2737 !important;
+  background-color: #555FDE !important;
+  color: #FFFFFF !important;
   border: none !important;
   font-size: 20px !important;
   font-weight: bold !important;
   height: 45px;
+  min-width: 120px;
   border-radius: 23px;
 `
 
@@ -79,11 +107,10 @@ const ContactUs = ({t}) => {
                   showIcon
               />
           ) : (
-              <Form
+              <StyledForm
                   name="contact-us"
                   layout="vertical"
                   autoComplete="off"
-                  style={{width: '100%'}}
                   onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   form={form}
@@ -134,7 +161,7 @@ const ContactUs = ({t}) => {
                     {t('Send')}
                   </StyledButton>
                 </Form.Item>
-              </Form>
+              </StyledForm>
           )}
         </Content>
       </Container>
