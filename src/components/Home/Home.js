@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useTranslation} from 'react-i18next';
-import {FindCar, AdditionalInfo, Refund, ContactUs, ReportViewer, ReportIncludes} from './';
+import {FindCar, AdditionalInfo, ContactUs, ReportViewer, ReportIncludes} from './';
 import {connect} from 'react-redux';
 import {commonActions} from '../../store/actions';
 
@@ -18,7 +18,6 @@ const Home = ({getReport, report}) => {
         <FindCar getReport={getReport} report={report} />
         <ReportIncludes t={t} />
         <AdditionalInfo t={t} />
-        <Refund t={t} />
         <ReportViewer t={t} />
         <ContactUs t={t} />
       </Container>
