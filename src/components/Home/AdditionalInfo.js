@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Empty} from 'antd';
-import {Responsive, container} from '../common';
+import {Responsive, container} from '../common/styles';
 
 const Container = styled.div`
   ${container};

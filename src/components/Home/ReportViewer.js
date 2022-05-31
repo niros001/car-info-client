@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {container} from '../common';
+import {container} from '../common/styles';
 import reportDesktopPng from '../../assets/report_desktop.png'
 import reportMobilePng from '../../assets/report_mobile.png'
 

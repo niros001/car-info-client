@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import styled from 'styled-components';
-import {container} from '../common';
+import {container} from '../common/styles';
 import includes01Svg from '../../assets/includes01.svg'
 import includes02Svg from '../../assets/includes02.svg'
 import includes03Svg from '../../assets/includes03.svg'

@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import styled, {css} from 'styled-components';
 import {Button, Input, DatePicker, Alert} from 'antd';
 import {useTranslation} from 'react-i18next';
-import {container} from '../common';
+import {container} from '../common/styles';
 import {LoadingOutlined} from '@ant-design/icons';
 import carSvg from '../../assets/car.svg';
 

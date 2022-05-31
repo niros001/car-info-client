@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import styled from 'styled-components';
 import {Button, Form, Input, notification, Alert} from 'antd';
-import {Responsive, container} from '../common';
+import {Responsive, container} from '../common/styles';
 import {contactUs} from '../../services/commonApi';
 
 const Container = styled.div`
