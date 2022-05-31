@@ -7,6 +7,7 @@ import {authActions, commonActions} from './store/actions';
 import {Header, Footer, DrawerSettings} from './components';
 import {Home} from './components/Home';
 import {Why} from './components/Why';
+import {Handicapped} from './components/Handicapped';
 import {Reports} from './components/Reports';
 
 const Container = styled.div`
@@ -40,6 +41,7 @@ const App = ({changeLanguage, reLogged}) => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/why" element={<Why />} />
+            <Route path="/handicapped" element={<Handicapped />} />
             <Route path="/reports-history" element={<Reports />} />
           </Routes>
         </Content>
