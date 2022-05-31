@@ -8,6 +8,7 @@ import {Header, Footer, DrawerSettings} from './components';
 import {Home} from './components/Home';
 import {Why} from './components/Why';
 import {Handicapped} from './components/Handicapped';
+import {CurvedVehicle} from './components/CurvedVehicle';
 import {Reports} from './components/Reports';
 
 const Container = styled.div`
@@ -42,6 +43,7 @@ const App = ({changeLanguage, reLogged}) => {
             <Route path="/" element={<Home />} />
             <Route path="/why" element={<Why />} />
             <Route path="/handicapped" element={<Handicapped />} />
+            <Route path="/curved-vehicle" element={<CurvedVehicle />} />
             <Route path="/reports-history" element={<Reports />} />
           </Routes>
         </Content>
