@@ -9,6 +9,7 @@ import {Home} from './components/Home';
 import {Why} from './components/Why';
 import {Handicapped} from './components/Handicapped';
 import {CurvedVehicle} from './components/CurvedVehicle';
+import {Recall} from './components/Recall';
 import {Reports} from './components/Reports';
 
 const Container = styled.div`
@@ -44,6 +45,7 @@ const App = ({changeLanguage, reLogged}) => {
             <Route path="/why" element={<Why />} />
             <Route path="/handicapped" element={<Handicapped />} />
             <Route path="/curved-vehicle" element={<CurvedVehicle />} />
+            <Route path="/recall" element={<Recall />} />
             <Route path="/reports-history" element={<Reports />} />
           </Routes>
         </Content>
