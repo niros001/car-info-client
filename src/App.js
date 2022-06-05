@@ -10,6 +10,7 @@ import {Why} from './components/Why';
 import {Handicapped} from './components/Handicapped';
 import {CurvedVehicle} from './components/CurvedVehicle';
 import {Recall} from './components/Recall';
+import {CertifiedGarage} from './components/CertifiedGarage';
 import {Reports} from './components/Reports';
 
 const Container = styled.div`
@@ -46,6 +47,7 @@ const App = ({changeLanguage, reLogged}) => {
             <Route path="/handicapped" element={<Handicapped />} />
             <Route path="/curved-vehicle" element={<CurvedVehicle />} />
             <Route path="/recall" element={<Recall />} />
+            <Route path="/certified-garage" element={<CertifiedGarage />} />
             <Route path="/reports-history" element={<Reports />} />
           </Routes>
         </Content>
