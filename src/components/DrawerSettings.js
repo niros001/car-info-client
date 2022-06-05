@@ -45,6 +45,8 @@ const DrawerSettings = ({visible, onClose, changeLanguage}) => {
           <Divider />
           <Link to="/certified-garage" onClick={onClose}>{t('Certified garage-menu')}</Link>
           <Divider />
+          <Link to="/car-dealer" onClick={onClose}>{t('Car dealer-menu')}</Link>
+          <Divider />
           <Link to="/reports-history" onClick={onClose}>{t('Show reports history')}</Link>
           <Divider />
           <Button onClick={testBot}>Test Bot</Button>
