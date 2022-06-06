@@ -34,8 +34,6 @@ const CarDealer = () => {
           <Info>{t('Car dealer-info-3')}</Info>
           <Label>{t('Car dealer-label-4')}</Label>
           <Info>{t('Car dealer-info-4')}</Info>
-          <Label>{t('Car dealer-label-5')}</Label>
-          <Info>{t('Car dealer-info-5')}</Info>
         </Content>
         <ReportViewer t={t} />
         <ContactUs t={t} />

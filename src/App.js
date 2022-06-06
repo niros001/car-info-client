@@ -12,6 +12,7 @@ import {CurvedVehicle} from './components/CurvedVehicle';
 import {Recall} from './components/Recall';
 import {CertifiedGarage} from './components/CertifiedGarage';
 import {CarDealer} from './components/CarDealer';
+import {HowItWorks} from './components/HowItWorks';
 import {Reports} from './components/Reports';
 
 const Container = styled.div`
@@ -50,6 +51,7 @@ const App = ({changeLanguage, reLogged}) => {
             <Route path="/recall" element={<Recall />} />
             <Route path="/certified-garage" element={<CertifiedGarage />} />
             <Route path="/car-dealer" element={<CarDealer />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/reports-history" element={<Reports />} />
           </Routes>
         </Content>
