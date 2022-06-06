@@ -38,4 +38,5 @@ export const Label = styled.div`
 export const Info = styled.div`
   font-size: 16px;
   color: #1F2737;
+  font-weight: ${({bold}) => (bold && 'bold')};
 `

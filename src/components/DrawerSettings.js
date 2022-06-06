@@ -49,6 +49,8 @@ const DrawerSettings = ({visible, onClose, changeLanguage}) => {
           <Divider />
           <Link to="/how-it-works" onClick={onClose}>{t('How it works-menu')}</Link>
           <Divider />
+          <Link to="/total-loss" onClick={onClose}>{t('Total loss-menu')}</Link>
+          <Divider />
           <Link to="/reports-history" onClick={onClose}>{t('Show reports history')}</Link>
           <Divider />
           <Button onClick={testBot}>Test Bot</Button>
