@@ -14,6 +14,7 @@ import {CertifiedGarage} from './components/CertifiedGarage';
 import {CarDealer} from './components/CarDealer';
 import {HowItWorks} from './components/HowItWorks';
 import {TotalLoss} from './components/TotalLoss';
+import {Rules} from './components/Rules';
 import {Reports} from './components/Reports';
 
 const Container = styled.div`
@@ -54,6 +55,7 @@ const App = ({changeLanguage, reLogged}) => {
             <Route path="/car-dealer" element={<CarDealer />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/total-loss" element={<TotalLoss />} />
+            <Route path="/rules" element={<Rules />} />
             <Route path="/reports-history" element={<Reports />} />
           </Routes>
         </Content>
